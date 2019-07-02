@@ -3,6 +3,7 @@ import React from 'react'
 import './style.css';
 import Video from '../../component/Video'
 import Poster from '../../Images/poster.png'
+import {Link} from 'react-router-dom'
 
 const Home = () => {
     return(
@@ -18,27 +19,11 @@ const Home = () => {
                 在這裡紀念， <br/>
                 在各自的未來續寫。 <br/>
             </p>
-            <a className="login-link" href='http://localhost:3000/login'>
-                login
-            </a>
+            <div className="login-link">
+                <Link className="login-link" to='/login'>login</Link>
+            </div>
         </div>
     )
 }
 
 export default Home
-
-            // <h1>Test</h1>
-            // <header className="App-header">
-            // <img src={logo} className="App-logo" alt="logo" />
-            // <p>
-            //     Edit <code>src/App.js</code> and save to reload.
-            // </p>
-            // <a
-            //     className="App-link"
-            //     href="https://reactjs.org"
-            //     target="_blank"
-            //     rel="noopener noreferrer"
-            // >
-            //     Learn React
-            // </a>
-            // </header>

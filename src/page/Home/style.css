@@ -11,6 +11,8 @@
     top: 0;
     z-index: 2;
     height: 95%;
+    transition-property: z-index;
+    transition-duration: 1s;
 }
 .sline{
     fill:none; 

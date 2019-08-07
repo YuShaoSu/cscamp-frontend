@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Video from 'components/Video'
 import Poster from 'assets/images/poster.png'
-import styles from './style.module.css'
+import styles from './style.module.scss'
 
 const Home = () => {
   return (
@@ -14,9 +14,7 @@ const Home = () => {
         在這裡紀念， <br />
         在各自的未來續寫。 <br />
       </p>
-      <div className={styles.loginLink}>
-        <Link to='/login'>login</Link>
-      </div>
+      <Link className={styles.loginLink} to='/login'>login</Link>
     </div>
   )
 }

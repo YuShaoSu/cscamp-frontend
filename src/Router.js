@@ -7,7 +7,6 @@ import {
 // import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import Login from 'pages/Login'
 import Home from 'pages/Home'
-import './index.css'
 
 const Router = () => {
   return (

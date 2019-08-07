@@ -1,6 +1,6 @@
 import React from 'react'
 import MyVid from 'assets/videos/intro.mp4'
-import styles from './style.module.css'
+import styles from './style.module.scss'
 
 const Video = () => {
   return (

@@ -1,8 +1,6 @@
-import React, {Component} from 'react'
-import Video from '../../component/Video'
+import React from 'react'
+import Video from 'component/Video'
 import './style.css'
-// import {Link} from 'react-router-dom'
-// import Button from 'react-bootstrap/Button'
 
 class Login extends React.Component {
     constructor(props){
@@ -79,17 +77,4 @@ class Login extends React.Component {
 
 }
 
-
 export default Login
-
-// const Login = () => {
-//     return(
-//         <div className='container'>
-//             <Video />
-//             <div>
-//                 <input>
-//             </div>
-//             <Link to='/'>home</Link>
-//         </div>
-//     )
-// }

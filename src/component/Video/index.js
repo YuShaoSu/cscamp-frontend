@@ -1,5 +1,5 @@
 import React from 'react'
-import MyVid from '../../Videos/intro.mp4'
+import MyVid from 'assets/videos/intro.mp4'
 import './style.css'
 
 const Video = () => {

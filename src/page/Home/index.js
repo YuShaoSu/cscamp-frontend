@@ -1,9 +1,8 @@
 import React from 'react'
-// import logo from '../../logo.svg';
-import './style.css';
-import Video from '../../component/Video'
-import Poster from '../../Images/poster.png'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import Video from 'component/Video'
+import Poster from 'assets/images/poster.png'
+import './style.css'
 
 const Home = () => {
     return(

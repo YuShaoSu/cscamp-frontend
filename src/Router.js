@@ -2,11 +2,11 @@ import React from 'react'
 import {
     Route,
     Switch,
-    withRouter
+    // withRouter
 } from 'react-router-dom'
-import Login from './page/Login'
-import Home from './page/Home'
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+// import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import Login from 'page/Login'
+import Home from 'page/Home'
 import './index.css'
 
 

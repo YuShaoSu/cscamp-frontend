@@ -8,19 +8,6 @@
   transition-duration: 1s;
 }
 
-.sline {
-  fill: none; 
-  stroke: rgb(255,255,255);
-  stroke-width: 1;
-}
-
-.slineContainer {
-  z-index: 2;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
 .introPara {
   z-index: 2;
   position: absolute;
@@ -28,6 +15,8 @@
   left: 370px;
   font-size: 8px;
   color: whitesmoke;
+  border-left: 1px white solid;
+  padding-left: 15px;
 }
 
 .loginLink {

@@ -1,0 +1,43 @@
+.posterHeader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  height: 95%;
+  transition-property: z-index;
+  transition-duration: 1s;
+}
+
+.sline {
+  fill: none; 
+  stroke: rgb(255,255,255);
+  stroke-width: 1;
+}
+
+.slineContainer {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.introPara {
+  z-index: 2;
+  position: absolute;
+  top: 90px;
+  left: 370px;
+  font-size: 8px;
+  color: whitesmoke;
+}
+
+.loginLink {
+  z-index: 2;
+  position: absolute;
+  left: 49%;
+  bottom: 5%;
+  font-size: 20px;
+  color: whitesmoke;
+  font-family: HomePageFont;
+  border-bottom: 1px solid;
+  text-decoration: none;
+}

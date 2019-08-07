@@ -1,6 +1,6 @@
 import React from 'react'
 import Video from 'components/Video'
-import './style.css'
+import styles from './style.module.css'
 
 class Login extends React.Component {
   constructor (props) {
@@ -37,9 +37,9 @@ class Login extends React.Component {
 
   render () {
     return (
-      <div className='container'>
+      <div>
         <Video />
-        <div className='login-form'>
+        <div className={styles.loginForm}>
           <form onSubmit={this.handleSubmit}>
             <label>
               帳號:<br />
@@ -64,7 +64,7 @@ class Login extends React.Component {
             <input type='submit' value='Login' />
             <br />
             <br />
-            <p className='contact'>
+            <p className={styles.contact}>
               遇到問題嗎？
               <a href='https://www.facebook.com/nctucsChaseDream/'>聯絡我們</a>
             </p>

@@ -1,0 +1,36 @@
+.posterHeader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  height: 95%;
+  transition-property: z-index;
+  transition-duration: 1s;
+}
+
+.introPara {
+  z-index: 2;
+  position: absolute;
+  top: 90px;
+  left: 370px;
+  font-size: 8px;
+  color: #f5f5f5;
+  border-left: 1px white solid;
+  padding-left: 15px;
+}
+
+.loginLink {
+  z-index: 2;
+  position: absolute;
+  left: 49%;
+  bottom: 5%;
+  font-size: 20px;
+  color: #f5f5f5;
+  font-family: HomePageFont;
+  border-bottom: 1px solid;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  };
+}

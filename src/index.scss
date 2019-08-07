@@ -8,10 +8,18 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+@font-face {
+  font-family: 'HomePageFont';
+  src: local('HomePageFont'), url('./Fonts/Lato-Light.ttf') format('truetype');
+}
+
+.bg-black { background-color: black !important; }
+.bg-white { background-color: white !important; }
+
+.text-white { color: white !important; }
 
 .fade-enter {
   opacity: 0;

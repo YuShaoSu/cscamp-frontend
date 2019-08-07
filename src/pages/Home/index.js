@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Video from 'component/Video'
+import Video from 'components/Video'
 import Poster from 'assets/images/poster.png'
 import './style.css'
 

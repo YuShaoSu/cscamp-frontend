@@ -1,5 +1,5 @@
 import React from 'react'
-import Video from 'component/Video'
+import Video from 'components/Video'
 import './style.css'
 
 class Login extends React.Component {

@@ -5,8 +5,8 @@ import {
   // withRouter
 } from 'react-router-dom'
 // import { TransitionGroup, CSSTransition } from 'react-transition-group'
-import Login from 'page/Login'
-import Home from 'page/Home'
+import Login from 'pages/Login'
+import Home from 'pages/Home'
 import './index.css'
 
 const Router = () => {

@@ -1,12 +1,17 @@
 import React from 'react'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 import Router from 'Router'
-import { BrowserRouter } from 'react-router-dom'
+import Reducer from 'api/Reducers'
+
+const store = createStore(Reducer, applyMiddleware(thunk))
 
 function App () {
   return (
-    <BrowserRouter>
+    <Provider store={store}>
       <Router />
-    </BrowserRouter>
+    </Provider>
   )
 }
 

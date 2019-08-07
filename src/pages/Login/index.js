@@ -1,38 +1,41 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import VideoLayout from 'components/VideoLayout'
+import { login } from 'api/Actions/User'
+import { sha512 } from 'utilities'
 import styles from './style.module.css'
 
 class Login extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      username: '',
-      passwd: ''
+      personalID: '',
+      password: ''
     }
-    this.handleUsername = this.handleUsername.bind(this)
-    this.handlePasswd = this.handlePasswd.bind(this)
+    this.handlePersonalID = this.handlePersonalID.bind(this)
+    this.handlePassword = this.handlePassword.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleUsername (event) {
-    this.setState({ username: event.target.value })
+  handlePersonalID (event) {
+    this.setState({ personalID: event.target.value })
   }
 
-  handlePasswd (event) {
-    this.setState({ passwd: event.target.value })
+  handlePassword (event) {
+    this.setState({ password: event.target.value })
   }
 
   handleSubmit (event) {
-    // window.alert('username: ' + this.state.username + '\npasswd: ' + this.state.passwd)
-    // event.preventDefault()
-    // fetch(process.env.SERVER_URL, {
-    //   method: 'POST',
-    //   body: JSON.stringify({ username: this.state.username, passwd: this.state.passwd }),
-    //   headers: { 'Content-Type': 'application/json' }
-    // }).then(res => {
-    //   // authentication part
-    //   console.log(res)
-    // })
+    event.preventDefault()
+    let payload = { ...this.state }
+    if (payload.personalID !== 'admin' || payload.password !== 'admin') {
+      payload = {
+        personalID: sha512(payload.personalID),
+        password: sha512(payload.password)
+      }
+    }
+    this.props.login(payload)
+    // console.log(payload)
   }
 
   render () {
@@ -42,14 +45,14 @@ class Login extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className='form-group'>
               <div className='row'>
-                <label className='col-12'>帳號:</label>
+                <label className='col-12'>身分證字號:</label>
                 <div className='col-12'>
                   <input
                     className='form-control'
-                    type='text'
-                    placeholder='姓名(例如：王大明)'
-                    value={this.state.username}
-                    onChange={this.handleUsername}
+                    type='password'
+                    placeholder='範例：A123456789'
+                    value={this.state.personalID}
+                    onChange={this.handlePersonalID}
                     required
                   />
                 </div>
@@ -63,9 +66,9 @@ class Login extends React.Component {
                   <input
                     className='form-control'
                     type='password'
-                    placeholder='身分證字號(例如：A123456789)'
-                    value={this.state.passwd}
-                    onChange={this.handlePasswd}
+                    placeholder='範例：19990101'
+                    value={this.state.password}
+                    onChange={this.handlePassword}
                     required
                   />
                 </div>
@@ -86,4 +89,10 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+const mapStateToProps = (state) => ({
+})
+const mapDispatchToProps = (dispatch) => ({
+  login: (payload) => dispatch(login(payload))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

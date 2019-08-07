@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  BrowserRouter,
   Route,
   Switch
   // withRouter
@@ -10,11 +11,13 @@ import Home from 'pages/Home'
 
 const Router = () => {
   return (
-    <Switch>
-      {/* index and login page */}
-      <Route exact path='/' component={Home} />
-      <Route path='/login' component={Login} />
-    </Switch>
+    <BrowserRouter>
+      <Switch>
+        {/* index and login page */}
+        <Route exact path='/' component={Home} />
+        <Route path='/login' component={Login} />
+      </Switch>
+    </BrowserRouter>
   )
 }
 

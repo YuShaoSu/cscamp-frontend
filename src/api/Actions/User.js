@@ -24,3 +24,15 @@ export const login = (data) => dispatch => {
     })
     .catch(() => dispatch(actions.user.auth.setStatus(FETCHING_STATUS.FAIL)))
 }
+
+export const logout = () => dispatch => {
+  dispatch(actions.user.auth.setStatus(FETCHING_STATUS.FETCHING))
+  apiServer
+    .get('/api/auth/v1/logout')
+    .then(({ data: response }) => {
+      console.log(response)
+      dispatch(actions.user.auth.logout())
+      dispatch(actions.user.auth.setStatus(FETCHING_STATUS.DONE))
+    })
+    .catch(() => dispatch(actions.user.auth.setStatus(FETCHING_STATUS.FAIL)))
+}

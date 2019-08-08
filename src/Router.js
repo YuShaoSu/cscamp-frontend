@@ -14,7 +14,7 @@ const Router = () => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
-        <Route path='/memory' component={Memory} />
+        <Route path='/look_back' component={Memory} />
       </Switch>
     </BrowserRouter>
   )

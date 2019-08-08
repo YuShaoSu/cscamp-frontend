@@ -17,8 +17,9 @@ export const login = (data) => dispatch => {
   dispatch(actions.user.auth.setStatus(FETCHING_STATUS.FETCHING))
   apiServer
     .post('/api/auth/v1/login', data)
-    .then(({ data: user }) => {
-      dispatch(actions.user.auth.login(user))
+    .then(({ data: response }) => {
+      console.log(response)
+      dispatch(actions.user.auth.login(response.data))
       dispatch(actions.user.auth.setStatus(FETCHING_STATUS.DONE))
     })
     .catch(() => dispatch(actions.user.auth.setStatus(FETCHING_STATUS.FAIL)))

@@ -1,0 +1,20 @@
+
+$text-black: #181831;
+
+.day {
+  font-size: 24px;
+  text-align: center;
+  color: $text-black;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 40px;
+  color: $text-black;
+}
+
+.vcenter {
+  display: flex;
+  align-items: center;
+  padding: 60px 20px;
+}

@@ -30,5 +30,7 @@ const initialState = {
 
 export default handleActions({
   LOOK_BACK: {
+    STORE: (state, action) => ({ ...state, data: action.payload }),
+    SET_STATUS: (state, action) => ({ ...state, status: action.payload })
   }
 }, initialState)

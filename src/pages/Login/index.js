@@ -9,16 +9,23 @@ class Login extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      personalID: '',
-      password: ''
+      personal_id: '',
+      password: '',
     }
     this.handlePersonalID = this.handlePersonalID.bind(this)
     this.handlePassword = this.handlePassword.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidUpdate () {
+    // 登入成功，跳轉頁面
+    if (this.props.currentUser) {
+      this.props.history.push('/look_back')
+    }
+  }
+
   handlePersonalID (event) {
-    this.setState({ personalID: event.target.value })
+    this.setState({ personal_id: event.target.value })
   }
 
   handlePassword (event) {
@@ -28,14 +35,13 @@ class Login extends React.Component {
   handleSubmit (event) {
     event.preventDefault()
     let payload = { ...this.state }
-    if (payload.personalID !== 'admin' || payload.password !== 'admin') {
+    if (payload.personal_id !== 'admin' || payload.password !== 'admin') {
       payload = {
-        personalID: sha512(payload.personalID),
+        personal_id: sha512(payload.personal_id),
         password: sha512(payload.password)
       }
     }
     this.props.login(payload)
-    // console.log(payload)
   }
 
   render () {
@@ -51,7 +57,7 @@ class Login extends React.Component {
                     className='form-control'
                     type='password'
                     placeholder='範例：A123456789'
-                    value={this.state.personalID}
+                    value={this.state.personal_id}
                     onChange={this.handlePersonalID}
                     required
                   />
@@ -90,6 +96,7 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser
 })
 const mapDispatchToProps = (dispatch) => ({
   login: (payload) => dispatch(login(payload))

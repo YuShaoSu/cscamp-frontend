@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import Home from 'pages/Home'
 import Login from 'pages/Login'
-import Memory from 'pages/Memory'
+import LookBack from 'pages/LookBack'
 
 const Router = () => {
   return (
@@ -14,7 +14,7 @@ const Router = () => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
-        <Route path='/look_back' component={Memory} />
+        <Route path='/look_back' component={LookBack} />
       </Switch>
     </BrowserRouter>
   )

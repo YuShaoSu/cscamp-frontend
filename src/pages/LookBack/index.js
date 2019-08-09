@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Navbar from 'components/Navbar'
 import PhotoTable from 'components/PhotoTable'
 
-class Memory extends React.Component {
+class LookBack extends React.Component {
   render () {
     return (
       <div>
@@ -31,4 +31,4 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Memory)
+export default connect(mapStateToProps, mapDispatchToProps)(LookBack)

@@ -10,7 +10,7 @@ class Login extends React.Component {
     super(props)
     this.state = {
       personal_id: '',
-      password: '',
+      password: ''
     }
     this.handlePersonalID = this.handlePersonalID.bind(this)
     this.handlePassword = this.handlePassword.bind(this)

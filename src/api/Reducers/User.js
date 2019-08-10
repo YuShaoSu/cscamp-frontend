@@ -3,7 +3,12 @@ import { handleActions } from 'redux-actions'
 import { FETCHING_STATUS } from 'utilities/constants'
 
 const initialState = {
-  currentUser: null,
+  currentUser: {
+    'guid': 'asdasds',
+    'camp_year': 108,
+    'name': '雞巴梁',
+    'is_admin': 1
+  },
   status: FETCHING_STATUS.IDLE
 }
 

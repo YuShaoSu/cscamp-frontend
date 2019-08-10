@@ -8,7 +8,7 @@ const PhotoLeft = (props) => (
       <div className='pull-right mx-5 py-3'>
         <img
           width='100%'
-          src={props.image}
+          src={'http://' + props.image}
           alt='無法載入圖片'
         />
       </div>
@@ -32,7 +32,7 @@ const PhotoRight = (props) => (
       <div className='pull-left mx-5 py-3'>
         <img
           width='100%'
-          src={props.image}
+          src={'http://' + props.image}
           alt='無法載入圖片'
         />
       </div>

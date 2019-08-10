@@ -20,7 +20,7 @@ class NavDropdown extends React.Component {
   render () {
     return (
       <div
-        className='nav-item dropdown mx-3'
+        className={`nav-item dropdown mx-3 ${this.props.className}`}
         onMouseOver={() => this.setState({ open: true })}
         onMouseLeave={() => this.setState({ open: false })}
       >
@@ -45,18 +45,22 @@ const Navbar = (props) => (
           <NavDropdownLink to='/performance/dance_party'>舞會</NavDropdownLink>
         </NavDropdown>
         <Link className='nav-item nav-link mx-4 py-0' to='/course'>課程</Link>
-        <div
-          className='nav-item nav-link clickable mx-5 py-0'
-          onClick={() => props.logout()}
-        >
-          登出
-        </div>
+
+        <NavDropdown className='mx-5' title={props.currentUser.name}>
+          <div
+            className={`dropdown-item clickable ${styles.dropdownItem}`}
+            onClick={() => props.logout()}
+          >
+            登出
+          </div>
+        </NavDropdown>
       </div>
     </div>
   </nav>
 )
 
 const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser
 })
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout())

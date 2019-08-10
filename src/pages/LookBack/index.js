@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import Navbar from 'components/Navbar'
+import Layout from 'components/Layout'
 import PhotoTable from 'components/PhotoTable'
 import { getLookBackPhotos } from 'api/Actions/LookBack'
 
@@ -14,20 +14,17 @@ class LookBack extends React.Component {
 
   render () {
     return (
-      <div>
-        <Navbar />
-        <div className='container mt-5'>
-          {
-            Object.keys(this.props.data).map((day, index) => (
-              <PhotoTable
-                day={day}
-                photos={this.props.data[day]}
-                key={day}
-              />
-            ))
-          }
-        </div>
-      </div>
+      <Layout>
+        {
+          Object.keys(this.props.data).map((day, index) => (
+            <PhotoTable
+              day={day}
+              photos={this.props.data[day]}
+              key={day}
+            />
+          ))
+        }
+      </Layout>
     )
   }
 }

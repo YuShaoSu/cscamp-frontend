@@ -1,16 +1,22 @@
+
 import React from 'react'
 import { connect } from 'react-redux'
 import VideoLayout from 'components/VideoLayout'
+import { ToastWrapper, toast } from 'components/Toast'
 import { login } from 'api/Actions/User'
 import { sha512 } from 'utilities'
+import { FETCHING_STATUS } from 'utilities/constants'
 import styles from './style.module.css'
 
 class Login extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      personal_id: '',
-      password: ''
+      payload: {
+        personal_id: '',
+        password: ''
+      },
+      submitted: false
     }
     this.handlePersonalID = this.handlePersonalID.bind(this)
     this.handlePassword = this.handlePassword.bind(this)
@@ -22,31 +28,48 @@ class Login extends React.Component {
     if (this.props.currentUser) {
       this.props.history.push('/look_back')
     }
+
+    if (this.state.submitted && this.props.status === FETCHING_STATUS.FAIL) {
+      toast('登入失敗', { type: 'warning' })
+      this.setState({ submitted: false })
+    }
   }
 
   handlePersonalID (event) {
-    this.setState({ personal_id: event.target.value })
+    this.setState({
+      payload: {
+        ...this.state.payload,
+        personal_id: event.target.value
+      }
+    })
   }
 
   handlePassword (event) {
-    this.setState({ password: event.target.value })
+    this.setState({
+      payload: {
+        ...this.state.payload,
+        password: event.target.value
+      }
+    })
   }
 
   handleSubmit (event) {
     event.preventDefault()
-    let payload = { ...this.state }
+    let payload = { ...this.state.payload }
     if (payload.personal_id !== 'admin' || payload.password !== 'admin') {
       payload = {
         personal_id: sha512(payload.personal_id),
         password: sha512(payload.password)
       }
     }
+    this.setState({ submitted: true })
     this.props.login(payload)
   }
 
   render () {
     return (
       <VideoLayout>
+        <ToastWrapper />
         <div className={styles.loginForm}>
           <form onSubmit={this.handleSubmit}>
             <div className='form-group'>
@@ -96,7 +119,8 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser
+  currentUser: state.user.currentUser,
+  status: state.user.status
 })
 const mapDispatchToProps = (dispatch) => ({
   login: (payload) => dispatch(login(payload))

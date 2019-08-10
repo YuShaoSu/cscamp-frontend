@@ -7,8 +7,8 @@ const initialState = {
     'guid': 'asdasds',
     'camp_year': 108,
     'name': '雞巴梁',
-    'is_admin': 1,   
-	},
+    'is_admin': 1
+  },
   status: FETCHING_STATUS.IDLE
 }
 

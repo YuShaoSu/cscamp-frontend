@@ -12,7 +12,7 @@ const initialState = {
       {
         image: 'https://i.imgur.com/somiv6r.jpg =50%x50%',
         text: '陌生的我們一起來到新的環境，開心又帶有一點尷尬的玩著團康遊戲，一邊擔心自己能不能跟大家好好相處，一邊期待接下來未知的旅程'
-      },
+      }
     ],
     2: [
       {
@@ -22,7 +22,7 @@ const initialState = {
       {
         image: 'https://i.imgur.com/somiv6r.jpg =50%x50%',
         text: '陌生的我們一起來到新的環境，開心又帶有一點尷尬的玩著團康遊戲，一邊擔心自己能不能跟大家好好相處，一邊期待接下來未知的旅程'
-      },
+      }
     ]
   },
   status: FETCHING_STATUS.IDLE

@@ -1,0 +1,21 @@
+
+$navbar-height: 56px;
+
+.navbar {
+  height: $navbar-height;
+  border-bottom: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+
+  .navbarBrand {
+    line-height: $navbar-height;
+  }
+
+  .navbarNav {
+    line-height: $navbar-height;
+  }
+}
+
+.dropdownItem {
+  line-height: 32px;
+  border-bottom: 1px solid #dee2e6;
+}

@@ -7,7 +7,7 @@ const PerformanceVideo = (props) => (
       title={props.title}
       width='800'
       height='450'
-      src={props.src}
+      src={props.src + '?rel=0'}
       frameBorder='0'
       allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
       allowFullScreen

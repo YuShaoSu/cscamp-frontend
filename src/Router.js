@@ -8,18 +8,18 @@ import Home from 'pages/Home'
 import Login from 'pages/Login'
 import LookBack from 'pages/LookBack'
 import * as Performance from 'pages/Performance'
-import AutoLogout from 'components/AutoLogout'
+import autoLogout from 'components/AutoLogout'
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/login' component={AutoLogout(Login)} />
-        <Route path='/look_back' component={AutoLogout(LookBack)} />
-        <Route path='/performance/night_show' component={AutoLogout(Performance.NightShow)} />
-        <Route path='/performance/camp_fire' component={AutoLogout(Performance.CampFire)} />
-        <Route path='/performance/dance_party' component={AutoLogout(Performance.DanceParty)} />
+        <Route path='/login' component={Login} />
+        <Route path='/look_back' component={autoLogout(LookBack)} />
+        <Route path='/performance/night_show' component={autoLogout(Performance.NightShow)} />
+        <Route path='/performance/camp_fire' component={autoLogout(Performance.CampFire)} />
+        <Route path='/performance/dance_party' component={autoLogout(Performance.DanceParty)} />
       </Switch>
     </BrowserRouter>
   )

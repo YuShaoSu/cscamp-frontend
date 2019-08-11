@@ -20,11 +20,13 @@ class NavDropdown extends React.Component {
   render () {
     return (
       <div
-        className={`nav-item dropdown mx-3 ${this.props.className}`}
+        className={`nav-item dropdown mx-sm-2 mx-md-3 ${this.props.className}`}
         onMouseOver={() => this.setState({ open: true })}
         onMouseLeave={() => this.setState({ open: false })}
       >
-        <div className='dropdown-toggle nav-link py-0'>{ this.props.title }</div>
+        <div className='dropdown-toggle nav-link py-0'>
+          { this.props.title }
+        </div>
         <div className={`dropdown-menu m-0 p-0 ${this.state.open && 'show'}`}>
           { this.props.children }
         </div>
@@ -33,31 +35,50 @@ class NavDropdown extends React.Component {
   }
 }
 
-const Navbar = (props) => (
-  <nav className={`navbar navbar-expand-md navbar-light px-5 ${styles.navbar}`}>
-    <div className={`navbar-brand mx-3 py-0 ${styles.navbarBrand}`}>你不資道的事</div>
-    <div className='collapse navbar-collapse'>
-      <div className={`navbar-nav ml-auto ${styles.navbarNav}`}>
-        <Link className='nav-item nav-link mx-4 py-0' to='/look_back'>回憶</Link>
-        <NavDropdown title='表演'>
-          <NavDropdownLink to='/performance/night_show'>晚會</NavDropdownLink>
-          <NavDropdownLink to='/performance/camp_fire'>營火</NavDropdownLink>
-          <NavDropdownLink to='/performance/dance_party'>舞會</NavDropdownLink>
-        </NavDropdown>
-        <Link className='nav-item nav-link mx-4 py-0' to='/course'>課程</Link>
+class Navbar extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { open: false }
+    this.handleClick = this.handleClick.bind(this)
+  }
 
-        <NavDropdown className='mx-5' title={props.currentUser && props.currentUser.name}>
-          <div
-            className={`dropdown-item clickable ${styles.dropdownItem}`}
-            onClick={() => props.logout()}
-          >
-            登出
+  handleClick () {
+    this.setState({ open: !this.state.open })
+  }
+
+  render () {
+    const { currentUser } = this.props
+
+    return (
+      <nav className={`navbar navbar-expand-sm navbar-light px-4 px-md-5 py-0 ${styles.navbar}`}>
+        <div className={`navbar-brand mx-0 mx-md-3 py-0 ${styles.navbarBrand}`}>你不資道的事</div>
+        <button className='navbar-toggler px-2 py-1' onClick={this.handleClick}>
+          <span className='navbar-toggler-icon' />
+        </button>
+        <div className={`collapse navbar-collapse ${this.state.open && styles.navbarCollapse}`}>
+          <div className={`navbar-nav ml-auto ${styles.navbarNav}`}>
+            <Link className='nav-item nav-link mx-sm-2 mx-md-4 py-0' to='/look_back'>回憶</Link>
+            <NavDropdown title='表演'>
+              <NavDropdownLink to='/performance/night_show'>晚會</NavDropdownLink>
+              <NavDropdownLink to='/performance/camp_fire'>營火</NavDropdownLink>
+              <NavDropdownLink to='/performance/dance_party'>舞會</NavDropdownLink>
+            </NavDropdown>
+            <Link className='nav-item nav-link mx-sm-2 mx-md-4 py-0' to='/course'>課程</Link>
+
+            <NavDropdown className='mx-sm-3 mx-md-5' title={currentUser && currentUser.name}>
+              <div
+                className={`dropdown-item clickable ${styles.dropdownItem}`}
+                onClick={() => this.props.logout()}
+              >
+                登出
+              </div>
+            </NavDropdown>
           </div>
-        </NavDropdown>
-      </div>
-    </div>
-  </nav>
-)
+        </div>
+      </nav>
+    )
+  }
+}
 
 const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser

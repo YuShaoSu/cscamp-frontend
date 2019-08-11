@@ -1,21 +1,37 @@
 
-$navbar-height: 56px;
+$nav-height: 56px;
+$bg-color: #f8f9fa;
+$border-color: #dee2e6; 
 
 .navbar {
-  height: $navbar-height;
-  border-bottom: 1px solid #dee2e6;
-  background-color: #f8f9fa;
+  height: $nav-height;
+  border-bottom: 1px solid $border-color;
+  background-color: $bg-color;
 
   .navbarBrand {
-    line-height: $navbar-height;
+    line-height: $nav-height;
+  }
+
+  .navbarCollapse {
+    // for mobile (xs)
+    @media (max-width: 576px) {
+      display: block;
+      background-color: $bg-color;
+      z-index: 10;
+      position: absolute;
+      top: $nav-height;
+      left: 0;
+      padding: 0px 1.5rem;
+      width: 100%;
+    }
   }
 
   .navbarNav {
-    line-height: $navbar-height;
+    line-height: $nav-height;
   }
 }
 
 .dropdownItem {
   line-height: 32px;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid $border-color;
 }

@@ -6,7 +6,7 @@ import { ToastWrapper, toast } from 'components/Toast'
 import { login } from 'api/Actions/User'
 import { sha512 } from 'utilities'
 import { FETCHING_STATUS } from 'utilities/constants'
-import styles from './style.module.css'
+import styles from './style.module.scss'
 
 class Login extends React.Component {
   constructor (props) {
@@ -70,7 +70,7 @@ class Login extends React.Component {
     return (
       <VideoLayout>
         <ToastWrapper />
-        <div className={styles.loginForm}>
+        <div className={`${styles.loginForm}`}>
           <form onSubmit={this.handleSubmit}>
             <div className='form-group'>
               <div className='row'>
@@ -105,7 +105,7 @@ class Login extends React.Component {
             </div>
 
             <div className='row justify-content-center my-4'>
-              <button className='btn-sm btn-light' type='submit'>登入</button>
+              <button className='btn-sm btn-light px-xl-3 py-xl-2' type='submit'>登入</button>
             </div>
             <div className={styles.contact}>
               遇到問題嗎？

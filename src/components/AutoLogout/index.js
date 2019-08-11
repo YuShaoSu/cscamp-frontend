@@ -72,10 +72,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 const AutoLogoutWrapper = connect(mapStateToProps, mapDispatchToProps)(AutoLogout)
 
-const autoLogout = (ChildrenComponent) => (() => (
+const autoLogout = (ChildrenComponent) => () => (
   <AutoLogoutWrapper>
     <ChildrenComponent />
   </AutoLogoutWrapper>
-))
+)
 
 export default autoLogout

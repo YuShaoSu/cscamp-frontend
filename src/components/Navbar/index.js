@@ -46,7 +46,7 @@ const Navbar = (props) => (
         </NavDropdown>
         <Link className='nav-item nav-link mx-4 py-0' to='/course'>課程</Link>
 
-        <NavDropdown className='mx-5' title={props.currentUser.name}>
+        <NavDropdown className='mx-5' title={props.currentUser && props.currentUser.name}>
           <div
             className={`dropdown-item clickable ${styles.dropdownItem}`}
             onClick={() => props.logout()}

@@ -47,7 +47,7 @@ const LookBackTable = (props) => {
           </div>
         </div>
       </div>
-      <div className={`row row-eq-height d-none d-md-flex my-3 ${styles.description}`}>
+      <div className={`row d-none d-md-flex my-3 ${styles.description}`}>
         {
           props.data.map((data, index) => {
             const text = <div>{ data.text }</div>
@@ -67,7 +67,7 @@ const LookBackTable = (props) => {
             const media = (data.type === 'image')
               ? <img width='100%' src={data.url} alt='無法載入圖片' />
               : <YoutubeVideo src={data.url} title={data.text} />
-            
+
             return <MediaCard key={index} media={media} text={data.text} />
           })
         }

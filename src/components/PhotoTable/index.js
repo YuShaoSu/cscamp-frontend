@@ -43,7 +43,7 @@ const PhotoRight = (props) => (
 // for small screen size
 const PhotoUp = (props) => (
   <React.Fragment>
-    <div className='col-11 col-sm-10 mt-3'>
+    <div className='col-11 col-sm-10 col-md-8 mt-3'>
       <div className='mx-3 mx-lg-4 mx-xl-5 py-3'>
         <img
           width='100%'
@@ -52,7 +52,7 @@ const PhotoUp = (props) => (
         />
       </div>
     </div>
-    <div className='col-11 col-sm-10 mb-3'>
+    <div className='col-11 col-sm-10 col-md-8 mb-3'>
       <div className='mx-3 mx-lg-4 mx-xl-5 py-sm-3'>
         <div className='px-1'>{ props.text }</div>
       </div>
@@ -104,4 +104,4 @@ const PhotoTable = (props) => {
   )
 }
 
-export default PhotoTable
+export { PhotoTable, PhotoUp }

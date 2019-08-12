@@ -10,7 +10,7 @@ export const actions = createActions({
   }
 })
 
-export const getLookBackPhotos = (payload) => dispatch => {
+export const getLookBackMedia = (payload) => dispatch => {
   dispatch(actions.lookBack.setStatus(FETCHING_STATUS.FETCHING))
   apiServer
     .post('/api/look_back/v1/getAllDays', payload)

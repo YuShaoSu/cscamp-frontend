@@ -1,12 +1,11 @@
 
 import React from 'react'
 
-const PerformanceVideo = (props) => (
-  <div className='row justify-content-center my-5 py-5'>
+const YoutubeVideo = (props) => (
+  <div className='embed-responsive embed-responsive-16by9'>
     <iframe
+      className='embed-responsive-item'
       title={props.title}
-      width='800'
-      height='450'
       src={props.src + '?rel=0'}
       frameBorder='0'
       allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
@@ -15,4 +14,4 @@ const PerformanceVideo = (props) => (
   </div>
 )
 
-export default PerformanceVideo
+export default YoutubeVideo

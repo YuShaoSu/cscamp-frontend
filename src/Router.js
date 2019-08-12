@@ -19,7 +19,6 @@ const Router = () => {
         <Route path='/look_back' component={autoLogout(LookBack)} />
         <Route path='/performance/night_show' component={autoLogout(Performance.NightShow)} />
         <Route path='/performance/camp_fire' component={autoLogout(Performance.CampFire)} />
-        <Route path='/performance/dance_party' component={autoLogout(Performance.DanceParty)} />
       </Switch>
     </BrowserRouter>
   )

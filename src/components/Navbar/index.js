@@ -61,7 +61,6 @@ class Navbar extends React.Component {
             <NavDropdown title='表演'>
               <NavDropdownLink to='/performance/night_show'>晚會</NavDropdownLink>
               <NavDropdownLink to='/performance/camp_fire'>營火</NavDropdownLink>
-              <NavDropdownLink to='/performance/dance_party'>舞會</NavDropdownLink>
             </NavDropdown>
             <Link className='nav-item nav-link mx-sm-2 mx-md-4 py-0' to='/course'>課程</Link>
 

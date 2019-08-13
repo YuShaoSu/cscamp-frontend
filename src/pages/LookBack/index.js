@@ -3,23 +3,28 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Layout from 'components/Layout'
 import { LookBackTable, MediaCard } from 'components/LookBackTable'
-import { getLookBackMedia } from 'api/Actions/LookBack'
+import YoutubeVideo from 'components/YoutubeVideo'
+import { getPoster, getLookBackMedia } from 'api/Actions/LookBack'
 import styles from './style.module.scss'
 
 class LookBack extends React.Component {
   componentDidMount () {
+    this.props.getPoster({
+      guid: this.props.currentUser.guid
+    })
+
     this.props.getLookBackMedia({
       guid: this.props.currentUser.guid
     })
   }
 
   render () {
-    const { data } = this.props
+    const { poster, media } = this.props
     let mediaSum = Array(2).fill(0)
 
     // calculate accumulated number of media of every day
-    Object.keys(data)
-      .map((day, index) => (data[day].length))
+    Object.keys(media)
+      .map((day, index) => (media[day].length))
       .reduce((a, b, i) => { return mediaSum[i + 2] = a + b }, 0)
     console.log(mediaSum)
 
@@ -27,30 +32,38 @@ class LookBack extends React.Component {
       <Layout>
         <div className={`row justify-content-center my-3 ${styles.description}`}>
           <MediaCard
-            media={<img width='100%' src='http://cscamp.csunion.nctu.me:10010/static/83956faf-d44e-4162-9f28-82c9db2a145d.png' alt='無法載入圖片' />}
-            text='雖然無法再回到那美好的時光，但彼此相處過的點點滴滴，會化作珍貴的回憶存在你我的心中，謝謝你們一起參與今年的逐夢營，很開心結識了這麼多可愛的隊員，也希望你們在這營隊中能獲得追逐夢想的勇氣。'
+            media={<img width='100%' src={poster.url} alt='無法載入圖片' />}
+            text={poster.text}
           />
         </div>
         {
-          Object.keys(data).map((day, index) => (
+          Object.keys(media).map((day, index) => (
             <LookBackTable
               key={day}
               day={day}
-              data={data[day]}
+              data={media[day]}
               mediaSum={mediaSum[day]}
             />
           ))
         }
+        <div className='row justify-content-center my-5'>
+          <MediaCard
+            media={<YoutubeVideo title='感性影片' src='https://www.youtube.com/embed/SuDUMQpYj50' />}
+            text=''
+          />
+        </div>
       </Layout>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  data: state.lookBack.data,
+  poster: state.lookBack.poster.data,
+  media: state.lookBack.media.data,
   currentUser: state.user.currentUser
 })
 const mapDispatchToProps = (dispatch) => ({
+  getPoster: (payload) => dispatch(getPoster(payload)),
   getLookBackMedia: (payload) => dispatch(getLookBackMedia(payload))
 })
 

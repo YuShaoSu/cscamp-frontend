@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Layout from 'components/Layout'
 import { LookBackTable, MediaCard } from 'components/LookBackTable'
+import YoutubeVideo from 'components/YoutubeVideo'
 import { getPoster, getLookBackMedia } from 'api/Actions/LookBack'
 import styles from './style.module.scss'
 
@@ -45,6 +46,12 @@ class LookBack extends React.Component {
             />
           ))
         }
+        <div className='row justify-content-center my-5'>
+          <MediaCard
+            media={<YoutubeVideo title='感性影片' src='https://www.youtube.com/embed/SuDUMQpYj50' />}
+            text=''
+          />
+        </div>
       </Layout>
     )
   }

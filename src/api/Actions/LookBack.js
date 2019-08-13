@@ -5,19 +5,37 @@ import { FETCHING_STATUS } from 'utilities/constants'
 
 export const actions = createActions({
   LOOK_BACK: {
-    STORE: null,
-    SET_STATUS: null
+    POSTER: {
+      STORE: null,
+      SET_STATUS: null
+    },
+    MEDIA: {
+      STORE: null,
+      SET_STATUS: null
+    }
   }
 })
 
+export const getPoster = (payload) => dispatch => {
+  dispatch(actions.lookBack.poster.setStatus(FETCHING_STATUS.FETCHING))
+  apiServer
+    .post('/api/look_back/v1/getPoster', payload)
+    .then(({ data: response }) => {
+      console.log(response)
+      dispatch(actions.lookBack.poster.store(response.data))
+      dispatch(actions.lookBack.poster.setStatus(FETCHING_STATUS.DONE))
+    })
+    .catch(() => dispatch(actions.lookBack.poster.setStatus(FETCHING_STATUS.FAIL)))
+}
+
 export const getLookBackMedia = (payload) => dispatch => {
-  dispatch(actions.lookBack.setStatus(FETCHING_STATUS.FETCHING))
+  dispatch(actions.lookBack.media.setStatus(FETCHING_STATUS.FETCHING))
   apiServer
     .post('/api/look_back/v1/getAllDays', payload)
     .then(({ data: response }) => {
       console.log(response)
-      dispatch(actions.lookBack.store(response.data))
-      dispatch(actions.lookBack.setStatus(FETCHING_STATUS.DONE))
+      dispatch(actions.lookBack.media.store(response.data))
+      dispatch(actions.lookBack.media.setStatus(FETCHING_STATUS.DONE))
     })
-    .catch(() => dispatch(actions.lookBack.setStatus(FETCHING_STATUS.FAIL)))
+    .catch(() => dispatch(actions.lookBack.media.setStatus(FETCHING_STATUS.FAIL)))
 }

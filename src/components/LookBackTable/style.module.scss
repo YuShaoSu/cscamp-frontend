@@ -2,14 +2,14 @@
 $text-black: #181831;
 
 .day {
-  font-size: 24px;
+  font-size: 22px;
   text-align: center;
   color: $text-black;
 
   @media (max-width: 767.98px) {
     height: 1px;
     border-top: 1px solid $text-black;
-    font-size: 22px;
+    font-size: 20px;
 
     span {
       position: relative;
@@ -19,7 +19,7 @@ $text-black: #181831;
     }
   }
   @media (max-width: 575.98px) {
-    font-size: 18px;
+    font-size: 16px;
 
     span {
       top: -14px;
@@ -29,25 +29,33 @@ $text-black: #181831;
 }
 
 .description {
-  font-size: 24px;
+  font-size: 16px;
   line-height: 48px;
   color: $text-black;
 
   @media (min-width: 992px) and (max-width: 1199.98px) {
-    font-size: 20px;
+    font-size: 14px;
     line-height: 40px;
   }
   @media (min-width: 767.98px) and (max-width: 991.98px) {
-    font-size: 18px;
+    font-size: 14px;
     line-height: 36px;
   }
   @media (min-width: 576px) and (max-width: 767.98px) {
-    font-size: 20px;
+    font-size: 14px;
     line-height: 40px;
   }
   @media (max-width: 575.98px) {
-    font-size: 16px;
+    font-size: 12px;
     line-height: 32px;
+  }
+}
+
+.image {
+  width: 150%;
+
+  @media (max-width: 767.98px) {
+    width: 100%;
   }
 }
 

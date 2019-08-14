@@ -36,12 +36,12 @@ const MediaCard = (props) => (
 )
 
 const LookBackTable = (props) => {
-  const days = ['', '第一天', '第二天', '第三天', '第四天', '第五天', '第六天']
+  const days = ['', 'Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6']
 
   return (
     <div>
       <div className='row justify-content-center my-4 my-lg-5'>
-        <div className='col-11 col-sm-10'>
+        <div id={`${days[props.day]}`} className='col-11 col-sm-10'>
           <div className={`${styles.day} mx-3`}>
             <span>{ days[props.day] }</span>
           </div>
@@ -52,7 +52,7 @@ const LookBackTable = (props) => {
           props.data.map((data, index) => {
             const text = <div>{ data.text }</div>
             const media = (data.type === 'image')
-              ? <img width='100%' src={data.url} alt='無法載入圖片' />
+              ? <img className={`${styles.image}`} src={data.url} alt='無法載入圖片' />
               : <YoutubeVideo src={data.url} title={data.text} />
 
             return ((props.mediaSum + index) % 2 === 0)
@@ -65,7 +65,7 @@ const LookBackTable = (props) => {
         {
           props.data.map((data, index) => {
             const media = (data.type === 'image')
-              ? <img width='100%' src={data.url} alt='無法載入圖片' />
+              ? <img className={`${styles.image}`} src={data.url} alt='無法載入圖片' />
               : <YoutubeVideo src={data.url} title={data.text} />
 
             return <MediaCard key={index} media={media} text={data.text} />

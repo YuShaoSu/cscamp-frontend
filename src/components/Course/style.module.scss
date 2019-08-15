@@ -1,0 +1,26 @@
+
+$text-black: #181831;
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 48px;
+  color: $text-black;
+}
+
+.content {
+  font-size: 18px;
+  line-height: 36px;
+  color: $text-black;
+}
+
+.link {
+  font-size: 18px;
+  line-height: 36px;
+}
+
+.vcenter {
+  display: grid;
+  align-items: center;
+  padding: 20px 20px;
+}

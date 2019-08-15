@@ -2,7 +2,7 @@
 $nav-height: 56px;
 $nav-width: 50px;
 $bg-color: #f8f9fa;
-$border-color: #dee2e6; 
+$border-color: #dee2e6;
 
 .wrapper {
   width: $nav-width;
@@ -10,75 +10,39 @@ $border-color: #dee2e6;
   display: contents;
 }
 
-.hashlink{ 
-  display: block;
-  z-index: 2; 
-  bottom: 5%;
-  position: fixed;
-  
-  .sidebarHash {
-    font-size: 8px;
-    text-decoration: none;
-    color: lightgrey;
-    writing-mode: initial;
-    padding-bottom: 2px;
-    transition: font-size 0.25s ease-out;
-
-    @media (max-width: 700px) {
-      .sidebarHash {
-        display: none;
-      }
-    }
-  }
-  
-  .sidebarHash:hover {
-    font-size: 20px;
-    color: black;
-    text-decoration: none;
-  }
-}
-
-.hashlinkNone{
-  display: none;
-}
-
 .sidebar {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    color: gray;
-    transition: all 0.3s;
-    padding-top: 1%;
-    padding-right: 80px;
+  display: block;
+  position: fixed;
+  top: 5%;
+  left: 0;
+  z-index: 1;
+  color: gray;
+  transition: all 0.3s;
+  padding-top: 1%;
+  padding-right: 80px;
+  text-decoration: none;
+  text-orientation: mixed;
+  writing-mode: vertical-lr;
 
+  a:hover {
+    color: #181831;
+  }
+
+  .sidebarItem {
+    padding-left: 30px;
+    padding-bottom: 40px;
     text-decoration: none;
-    writing-mode: vertical-lr;
-    text-orientation: mixed;
+    color: gray;
+  }
 
-    .sidebarItem {
-        padding-left: 30px;
-        padding-bottom: 40px;
-        text-decoration: none;
-        color: gray;
-    }
-
-    .sidebarItemActive {
-        color: black;
-    }
-
-}
-
-@media (max-width: 700px) {
-  .sidebar {
+  @media (max-width: 767.98px) {
     width: 100%;
     height: auto;
     position: relative;
     text-decoration: none;
-    writing-mode: initial;
     text-orientation: mixed;
-    padding-top: 5%;
+    writing-mode: initial;
+    padding-top: 3%;
     padding-right: 0px;
     left: 10%;
 
@@ -90,51 +54,63 @@ $border-color: #dee2e6;
       padding-bottom: 1%;
     }
   }
+
+  @media (max-width: 575.98px) {
+    display: none;
+  }
 }
 
-@media (max-width: 576px) {
-    .sidebar {
-      display: none;
+.sidebarHash { 
+  display: block;
+  z-index: 2; 
+  bottom: 5%;
+  position: fixed;
+
+  @media (max-width: 767.98px) {
+    display: none;
+  }
   
-      .sidebarItem {
-        display: none;
-      }
+  .hashLink {
+    font-size: 8px;
+    text-decoration: none;
+    color: lightgrey;
+    writing-mode: initial;
+    padding-bottom: 2px;
+    transition: font-size 0.25s ease-out;
+
+    &:hover {
+      font-size: 20px;
+      color: black;
+      text-decoration: none;
     }
- 
+  }
 }
 
 .navbar {
   display: none;
-  height: $nav-height;
-  border-bottom: 1px solid $border-color;
-  background-color: $bg-color;
 
-  .navbarBrand {
-    line-height: $nav-height;
-  }
-
-  @media (max-width: 576px) {
+  @media (max-width: 575.98px) {
     display: block;
-  }
+    height: $nav-height;
+    border-bottom: 1px solid $border-color;
+    background-color: $bg-color;
 
-  .navbarCollapse {
-    // for mobile (xs)
-    @media (max-width: 576px) {
+    .navbarCollapse {
       display: block;
       background-color: $bg-color;
+      border-bottom: 1px solid $border-color;
       z-index: 10;
       position: absolute;
       top: $nav-height;
       left: 0;
       padding: 0px 1.5rem;
       width: 100%;
+
+      .navbarNav {
+        line-height: $nav-height;
+      }
     }
   }
-
-  .navbarNav {
-    line-height: $nav-height;
-  }
-
 }
 
 .dropdownItem {

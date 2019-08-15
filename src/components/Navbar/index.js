@@ -21,7 +21,7 @@ class NavDropdown extends React.Component {
   render () {
     return (
       <div
-        className={`nav-item dropdown mx-sm-2 mx-md-3 ${this.props.className}`}
+        className='nav-item dropdown'
         onMouseOver={() => this.setState({ open: true })}
         onMouseLeave={() => this.setState({ open: false })}
       >
@@ -36,25 +36,25 @@ class NavDropdown extends React.Component {
   }
 }
 
+const SidebarLink = (props) => (
+  <NavLink
+    className={`mx-sm-4 ${styles.sidebarItem}`} 
+    activeClassName='text-black'
+    to={props.to}
+  >
+    { props.children }
+  </NavLink>
+)
+
 class Navbar extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { open: false, hash: false }
+    this.state = { open: false }
     this.handleClick = this.handleClick.bind(this)
-    this.handleHash = this.handleHash.bind(this)
-    this.handleHashTrue = this.handleHashTrue.bind(this)
   }
 
   handleClick () {
     this.setState({ open: !this.state.open })
-  }
-
-  handleHashTrue () {
-    this.setState({ hash: true })
-  }
-
-  handleHash () {
-    this.setState({ hash: false })
   }
 
   render () {
@@ -64,55 +64,43 @@ class Navbar extends React.Component {
       <div>
         <div className={`${styles.wrapper}`}>
           <div className={`${styles.sidebar}`}>
-            <button className='navbar-toggler px-2 py-1' onClick={this.handleClick}>
-              <span className='navbar-toggler-icon' />
-            </button>
-              <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
-                activeClassName={`${styles.sidebarItemActive}`} to='/look_back' onClick={this.handleHashTrue}>Look Back</NavLink>
-              <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
-                activeClassName={`${styles.sidebarItemActive}`} to='/performance/night_show' onClick={this.handleHash}>Night Show</NavLink>
-              <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
-                activeClassName={`${styles.sidebarItemActive}`} to='/performance/camp_fire' onClick={this.handleHash}>Camp Fire</NavLink>
-              <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
-                activeClassName={`${styles.sidebarItemActive}`} to='/course' onClick={this.handleHash}>Course</NavLink>
+            <SidebarLink to='/look_back'>Look Back</SidebarLink>
+            <SidebarLink to='/performance/night_show'>Night Show</SidebarLink>
+            <SidebarLink to='/performance/camp_fire'>Camp Fire</SidebarLink>
+            <SidebarLink to='/course'>Course</SidebarLink>
           </div>
-            {/* <NavDropdown className='mx-sm-3 mx-md-5' title={currentUser && currentUser.name}>
-              <div
-                className={`dropdown-item clickable ${styles.dropdownItem}`}
-                onClick={() => this.props.logout()}
-              >
-                登出
-              </div>
-            </NavDropdown> */}
-          <div className={`${this.state.hash ? styles.hashlink : styles.hashlinkNone}`}>
-            <HashLink smooth to="#Day1" className={`mx-sm-4 ${styles.sidebarHash}`}>Day1</HashLink>
-            <br />
-            <HashLink smooth to="#Day2" className={`mx-sm-4 ${styles.sidebarHash}`}>Day2</HashLink>
-            <br />
-            <HashLink smooth to="#Day3" className={`mx-sm-4 ${styles.sidebarHash}`}>Day3</HashLink>
-            <br />
-            <HashLink smooth to="#Day4" className={`mx-sm-4 ${styles.sidebarHash}`}>Day4</HashLink>
-            <br />
-            <HashLink smooth to="#Day5" className={`mx-sm-4 ${styles.sidebarHash}`}>Day5</HashLink>
-            <br />
-            <HashLink smooth to="#Day6" className={`mx-sm-4 ${styles.sidebarHash}`}>Day6</HashLink>
-          </div>
+
+          {
+            this.props.location.pathname === '/look_back' &&
+            <div className={styles.sidebarHash}>
+              <HashLink to="#Day1" className={`mx-4 ${styles.hashLink}`} smooth>Day1</HashLink>
+              <br />
+              <HashLink to="#Day2" className={`mx-4 ${styles.hashLink}`} smooth>Day2</HashLink>
+              <br />
+              <HashLink to="#Day3" className={`mx-4 ${styles.hashLink}`} smooth>Day3</HashLink>
+              <br />
+              <HashLink to="#Day4" className={`mx-4 ${styles.hashLink}`} smooth>Day4</HashLink>
+              <br />
+              <HashLink to="#Day5" className={`mx-4 ${styles.hashLink}`} smooth>Day5</HashLink>
+              <br />
+              <HashLink to="#Day6" className={`mx-4 ${styles.hashLink}`} smooth>Day6</HashLink>
+            </div>
+          }
         </div>
 
-        <nav className={`navbar navbar-expand-sm navbar-light px-4 px-md-5 py-0 ${styles.navbar}`}>
+        {/* for mobile */}
+        <nav className={`navbar navbar-light px-4 py-auto ${styles.navbar}`}>
           <button className='navbar-toggler px-2 py-1' onClick={this.handleClick}>
             <span className='navbar-toggler-icon' />
           </button>
           <div className={`collapse navbar-collapse ${this.state.open && styles.navbarCollapse}`}>
-            <div className={`navbar-nav ml-auto ${styles.navbarNav}`}>
-              <Link className='nav-item nav-link mx-sm-2 mx-md-4 py-0' to='/look_back'>回憶</Link>
-              <NavDropdown title='表演'>
-                <NavDropdownLink to='/performance/night_show'>晚會</NavDropdownLink>
-                <NavDropdownLink to='/performance/camp_fire'>營火</NavDropdownLink>
-              </NavDropdown>
-              <Link className='nav-item nav-link mx-sm-2 mx-md-4 py-0' to='/course'>課程</Link>
+            <div className={`navbar-nav ${styles.navbarNav}`}>
+              <Link className='nav-item nav-link py-0' to='/look_back'>Look Back</Link>
+              <Link className='nav-item nav-link py-0' to='/performance/night_show'>Night Show</Link>
+              <Link className='nav-item nav-link py-0' to='/performance/camp_fire'>Camp Fire</Link>
+              <Link className='nav-item nav-link py-0' to='/course'>Course</Link>
 
-              <NavDropdown className='mx-sm-3 mx-md-5' title={currentUser && currentUser.name}>
+              <NavDropdown className='mx-sm-3' title={currentUser && currentUser.name}>
                 <div
                   className={`dropdown-item clickable ${styles.dropdownItem}`}
                   onClick={() => this.props.logout()}

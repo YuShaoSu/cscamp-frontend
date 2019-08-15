@@ -7,12 +7,12 @@ import styles from './style.module.scss'
 const MediaRow = (props) => (
   <React.Fragment>
     <div className={`col-6 border-right border-dark ${styles.vcenter}`}>
-      <div className='pull-right mx-3 mx-lg-4 mx-xl-5 py-3'>
+      <div className='pull-right mr-3 mr-lg-4 py-3'>
         { props.left }
       </div>
     </div>
     <div className={`col-6 ${styles.vcenter}`}>
-      <div className='pull-left mx-3 mx-lg-4 mx-xl-5 py-3'>
+      <div className='pull-left ml-3 ml-lg-4 py-3'>
         { props.right }
       </div>
     </div>
@@ -23,12 +23,12 @@ const MediaRow = (props) => (
 const MediaCard = (props) => (
   <React.Fragment>
     <div className='col-11 col-sm-10 col-md-8 mt-3'>
-      <div className='mx-3 mx-lg-4 mx-xl-5 py-3'>
+      <div className='mx-3 mx-xl-4 py-3'>
         { props.media }
       </div>
     </div>
     <div className='col-11 col-sm-10 col-md-8 mb-3'>
-      <div className='mx-3 mx-lg-4 mx-xl-5 py-sm-3'>
+      <div className='mx-3 mx-xl-4 py-sm-3'>
         <div className='px-1'>{ props.text }</div>
       </div>
     </div>
@@ -52,7 +52,7 @@ const LookBackTable = (props) => {
           props.data.map((data, index) => {
             const text = <div>{ data.text }</div>
             const media = (data.type === 'image')
-              ? <img className={`${styles.image}`} src={data.url} alt='無法載入圖片' />
+              ? <img width='100%' src={data.url} alt='無法載入圖片' />
               : <YoutubeVideo src={data.url} title={data.text} />
 
             return ((props.mediaSum + index) % 2 === 0)
@@ -65,7 +65,7 @@ const LookBackTable = (props) => {
         {
           props.data.map((data, index) => {
             const media = (data.type === 'image')
-              ? <img className={`${styles.image}`} src={data.url} alt='無法載入圖片' />
+              ? <img width='100%' src={data.url} alt='無法載入圖片' />
               : <YoutubeVideo src={data.url} title={data.text} />
 
             return <MediaCard key={index} media={media} text={data.text} />

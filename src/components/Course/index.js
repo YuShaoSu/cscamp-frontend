@@ -7,7 +7,7 @@ const CourseCard = (props) => (
     <div className={`col-11 col-sm-10 col-md-6 col-lg-5 ${styles.vcenter}`}>
       <div className='mx-3 mx-lg-4 my-md-3 py-3'>
         <div className={styles.title}>{ props.title }</div>
-        <div className={styles.content}>{ props.content }</div>
+        <div className={styles.text}>{ props.text }</div>
       </div>
     </div>
     <div className={`col-11 col-sm-10 col-md-6 col-lg-5 ${styles.vcenter}`}>
@@ -21,7 +21,7 @@ const CourseCard = (props) => (
 const CourseText = (props) => (
   <div className='col-11 col-sm-10 col-md-12 col-lg-10 my-5'>
     <div className='mx-3 mx-lg-4'>
-      <div className={styles.content}>{ props.content }</div>
+      <div className={styles.text}>{ props.text }</div>
       <a
         className={styles.link}
         target='_blank'

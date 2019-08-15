@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade'
 // left and right
 const MediaRow = (props) => (
   <React.Fragment>
-    <div className={`col-6 border-right border-dark ${styles.vcenter}`}>
+    <div className={`col-6 border-right border-gray ${styles.vcenter}`}>
       <div className='pull-right mr-3 mr-lg-4 py-3'>
         <Fade bottom cascade>
           { props.left }

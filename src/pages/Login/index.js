@@ -109,7 +109,13 @@ class Login extends React.Component {
             </div>
             <div className={styles.contact}>
               遇到問題嗎？
-              <a href='https://www.facebook.com/nctucsChaseDream/'>聯絡我們</a>
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://www.facebook.com/nctucsChaseDream/'
+              >
+                聯絡我們
+              </a>
             </div>
           </form>
         </div>

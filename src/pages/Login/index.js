@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import VideoLayout from 'components/VideoLayout'
 import { ToastWrapper, toast } from 'components/Toast'
-import { login } from 'api/Actions/User'
+import { login, clearStorage } from 'api/Actions/User'
 import { sha512 } from 'utilities'
 import { FETCHING_STATUS } from 'utilities/constants'
 import styles from './style.module.scss'
@@ -23,9 +23,26 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount () {
+    const { state } = this.props.location
+
+    // 沒登入被導入此頁
+    if (state && state.redirected) {
+      toast('請先登入，謝謝!', { type: 'warning' })
+
+      // 清除 location state
+      this.props.history.replace({
+        pathname: '/login',
+        state: {}
+      })
+    }
+    this.props.clearStorage()
+  }
+
   componentDidUpdate () {
     // 登入成功，跳轉頁面
     if (this.props.currentUser) {
+      console.log(this.props.currentUser)
       this.props.history.push('/look_back')
     }
 
@@ -109,7 +126,13 @@ class Login extends React.Component {
             </div>
             <div className={styles.contact}>
               遇到問題嗎？
-              <a href='https://www.facebook.com/nctucsChaseDream/'>聯絡我們</a>
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://www.facebook.com/nctucsChaseDream/'
+              >
+                聯絡我們
+              </a>
             </div>
           </form>
         </div>
@@ -123,7 +146,8 @@ const mapStateToProps = (state) => ({
   status: state.user.status
 })
 const mapDispatchToProps = (dispatch) => ({
-  login: (payload) => dispatch(login(payload))
+  login: (payload) => dispatch(login(payload)),
+  clearStorage: () => dispatch(clearStorage())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

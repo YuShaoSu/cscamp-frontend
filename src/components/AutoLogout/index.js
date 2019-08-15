@@ -12,7 +12,7 @@ class AutoLogout extends React.Component {
     this.setTimer = this.setTimer.bind(this)
     this.clearTimer = this.clearTimer.bind(this)
     this.resetTimer = this.resetTimer.bind(this)
-    this.logout = this.logout.bind(this)
+    this.redirect = this.redirect.bind(this)
   }
 
   componentDidMount () {
@@ -38,7 +38,7 @@ class AutoLogout extends React.Component {
   }
 
   setTimer () {
-    this.timer = window.setTimeout(this.logout, this.state.logoutTime)
+    this.timer = window.setTimeout(this.redirect, this.state.logoutTime)
   }
 
   clearTimer () {
@@ -50,8 +50,8 @@ class AutoLogout extends React.Component {
     this.setTimer()
   }
 
-  logout () {
-    this.props.logout()
+  redirect () {
+    window.location.assign('/')
   }
 
   render () {

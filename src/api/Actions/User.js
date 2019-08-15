@@ -19,6 +19,8 @@ export const login = (payload) => dispatch => {
     .post('/api/auth/v1/login', payload)
     .then(({ data: response }) => {
       console.log(response)
+      const storage = window.sessionStorage
+      storage.setItem('user', response.data)
       dispatch(actions.user.auth.login(response.data))
       dispatch(actions.user.auth.setStatus(FETCHING_STATUS.DONE))
     })
@@ -35,4 +37,18 @@ export const logout = () => dispatch => {
       dispatch(actions.user.auth.setStatus(FETCHING_STATUS.DONE))
     })
     .catch(() => dispatch(actions.user.auth.setStatus(FETCHING_STATUS.FAIL)))
+}
+
+export const getStorage = () => dispatch => {
+  const storage = window.sessionStorage
+  const user = storage.getItem('user')
+  if (user) {
+    dispatch(actions.user.auth.login(user))
+  }
+}
+
+export const clearStorage = () => dispatch => {
+  const storage = window.sessionStorage
+  storage.removeItem('user')
+  dispatch(actions.user.auth.login(null))
 }

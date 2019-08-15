@@ -41,7 +41,7 @@ class NightShow extends React.Component {
         <div className='row justify-content-center'>
           {
             videos.map((video, index) => (
-              <div className='col-12 col-md-10 col-lg-8 my-4 my-md-5' key={video.title}>
+              <div className='col-12 col-md-10 col-lg-8 my-5 my-md-5' key={video.title}>
                 <YoutubeVideo
                   title={video.title}
                   src={video.url}

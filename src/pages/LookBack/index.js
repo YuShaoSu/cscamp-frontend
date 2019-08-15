@@ -6,7 +6,6 @@ import { LookBackTable, MediaCard } from 'components/LookBackTable'
 import YoutubeVideo from 'components/YoutubeVideo'
 import { getPoster, getLookBackMedia } from 'api/Actions/LookBack'
 import styles from './style.module.scss'
-import Fade from 'react-reveal/Fade'
 
 class LookBack extends React.Component {
   componentDidMount () {

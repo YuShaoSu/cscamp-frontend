@@ -13,10 +13,19 @@ import LookBack from 'pages/LookBack'
 import * as Performance from 'pages/Performance'
 import Course from 'pages/Course'
 import autoLogout from 'components/AutoLogout'
+import { getStorage } from 'api/Actions/User'
 
-const Router = (props) => {
-  const loginOnly = (Component) => {
-    if (props.currentUser) {
+class Router extends React.Component {
+  constructor (props) {
+    super(props)
+    this.loginOnly = this.loginOnly.bind(this)
+    this.props.getStorage()
+  }
+
+  loginOnly (Component) {
+    const storage = window.sessionStorage
+    const user = storage.getItem('user')
+    if (user) {
       return () => <Component />
     }
     else {
@@ -31,24 +40,27 @@ const Router = (props) => {
     }
   }
 
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/login' component={Login} />
-        <Route path='/look_back' component={loginOnly(autoLogout(LookBack))} />
-        <Route path='/performance/night_show' component={autoLogout(Performance.NightShow)} />
-        <Route path='/performance/camp_fire' component={autoLogout(Performance.CampFire)} />
-        <Route path='/course' component={autoLogout(Course)} />
-      </Switch>
-    </BrowserRouter>
-  )
+  render () {
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/login' component={Login} />
+          <Route path='/look_back' component={this.loginOnly(autoLogout(LookBack))} />
+          <Route path='/performance/night_show' component={this.loginOnly(autoLogout(Performance.NightShow))} />
+          <Route path='/performance/camp_fire' component={this.loginOnly(autoLogout(Performance.CampFire))} />
+          <Route path='/course' component={this.loginOnly(autoLogout(Course))} />
+        </Switch>
+      </BrowserRouter>
+    )
+  }
 }
 
 const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser
 })
 const mapDispatchToProps = (dispatch) => ({
+  getStorage: () => dispatch(getStorage())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Router)

@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import VideoLayout from 'components/VideoLayout'
 import { ToastWrapper, toast } from 'components/Toast'
-import { login } from 'api/Actions/User'
+import { login, clearStorage } from 'api/Actions/User'
 import { sha512 } from 'utilities'
 import { FETCHING_STATUS } from 'utilities/constants'
 import styles from './style.module.scss'
@@ -36,11 +36,13 @@ class Login extends React.Component {
         state: {}
       })
     }
+    this.props.clearStorage()
   }
 
   componentDidUpdate () {
     // 登入成功，跳轉頁面
     if (this.props.currentUser) {
+      console.log(this.props.currentUser)
       this.props.history.push('/look_back')
     }
 
@@ -144,7 +146,8 @@ const mapStateToProps = (state) => ({
   status: state.user.status
 })
 const mapDispatchToProps = (dispatch) => ({
-  login: (payload) => dispatch(login(payload))
+  login: (payload) => dispatch(login(payload)),
+  clearStorage: () => dispatch(clearStorage())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

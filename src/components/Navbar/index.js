@@ -39,12 +39,22 @@ class NavDropdown extends React.Component {
 class Navbar extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { open: false }
+    this.state = { open: false, hash: false }
     this.handleClick = this.handleClick.bind(this)
+    this.handleHash = this.handleHash.bind(this)
+    this.handleHashTrue = this.handleHashTrue.bind(this)
   }
 
   handleClick () {
     this.setState({ open: !this.state.open })
+  }
+
+  handleHashTrue () {
+    this.setState({ hash: true })
+  }
+
+  handleHash () {
+    this.setState({ hash: false })
   }
 
   render () {
@@ -52,32 +62,41 @@ class Navbar extends React.Component {
 
     return (
       <div>
-        <div className={`${styles.sidebar}`}>
-          <button className='navbar-toggler px-2 py-1' onClick={this.handleClick}>
-            <span className='navbar-toggler-icon' />
-          </button>
-            <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
-              activeClassName={`${styles.sidebarItemActive}`} to='/look_back'>Look Back</NavLink>
-            <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
-              activeClassName={`${styles.sidebarItemActive}`} to='/performance/night_show'>Night Show</NavLink>
-            <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
-              activeClassName={`${styles.sidebarItemActive}`} to='/performance/camp_fire'>Camp Fire</NavLink>
-            <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
-              activeClassName={`${styles.sidebarItemActive}`} to='/course'>Course</NavLink>
-          {/* <NavDropdown className='mx-sm-3 mx-md-5' title={currentUser && currentUser.name}>
-            <div
-              className={`dropdown-item clickable ${styles.dropdownItem}`}
-              onClick={() => this.props.logout()}
-            >
-              登出
-            </div>
-          </NavDropdown> */}
-          <HashLink smooth to="#Day1" className={`mx-sm-4 ${styles.sidebarHash}`}>Day1</HashLink>
-          <HashLink smooth to="#Day2" className={`mx-sm-4 ${styles.sidebarHash}`}>Day2</HashLink>
-          <HashLink smooth to="#Day3" className={`mx-sm-4 ${styles.sidebarHash}`}>Day3</HashLink>
-          <HashLink smooth to="#Day4" className={`mx-sm-4 ${styles.sidebarHash}`}>Day4</HashLink>
-          <HashLink smooth to="#Day5" className={`mx-sm-4 ${styles.sidebarHash}`}>Day5</HashLink>
-          <HashLink smooth to="#Day6" className={`mx-sm-4 ${styles.sidebarHash}`}>Day6</HashLink>
+        <div className={`${styles.wrapper}`}>
+          <div className={`${styles.sidebar}`}>
+            <button className='navbar-toggler px-2 py-1' onClick={this.handleClick}>
+              <span className='navbar-toggler-icon' />
+            </button>
+              <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
+                activeClassName={`${styles.sidebarItemActive}`} to='/look_back' onClick={this.handleHashTrue}>Look Back</NavLink>
+              <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
+                activeClassName={`${styles.sidebarItemActive}`} to='/performance/night_show' onClick={this.handleHash}>Night Show</NavLink>
+              <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
+                activeClassName={`${styles.sidebarItemActive}`} to='/performance/camp_fire' onClick={this.handleHash}>Camp Fire</NavLink>
+              <NavLink className={`mx-sm-4 ${styles.sidebarItem}`} 
+                activeClassName={`${styles.sidebarItemActive}`} to='/course' onClick={this.handleHash}>Course</NavLink>
+          </div>
+            {/* <NavDropdown className='mx-sm-3 mx-md-5' title={currentUser && currentUser.name}>
+              <div
+                className={`dropdown-item clickable ${styles.dropdownItem}`}
+                onClick={() => this.props.logout()}
+              >
+                登出
+              </div>
+            </NavDropdown> */}
+          <div className={`${this.state.hash ? styles.hashlink : styles.hashlinkNone}`}>
+            <HashLink smooth to="#Day1" className={`mx-sm-4 ${styles.sidebarHash}`}>Day1</HashLink>
+            <br />
+            <HashLink smooth to="#Day2" className={`mx-sm-4 ${styles.sidebarHash}`}>Day2</HashLink>
+            <br />
+            <HashLink smooth to="#Day3" className={`mx-sm-4 ${styles.sidebarHash}`}>Day3</HashLink>
+            <br />
+            <HashLink smooth to="#Day4" className={`mx-sm-4 ${styles.sidebarHash}`}>Day4</HashLink>
+            <br />
+            <HashLink smooth to="#Day5" className={`mx-sm-4 ${styles.sidebarHash}`}>Day5</HashLink>
+            <br />
+            <HashLink smooth to="#Day6" className={`mx-sm-4 ${styles.sidebarHash}`}>Day6</HashLink>
+          </div>
         </div>
 
         <nav className={`navbar navbar-expand-sm navbar-light px-4 px-md-5 py-0 ${styles.navbar}`}>

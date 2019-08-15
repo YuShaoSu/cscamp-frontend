@@ -2,18 +2,23 @@
 import React from 'react'
 import YoutubeVideo from 'components/YoutubeVideo'
 import styles from './style.module.scss'
+import Fade from 'react-reveal/Fade'
 
 // left and right
 const MediaRow = (props) => (
   <React.Fragment>
     <div className={`col-6 border-right border-dark ${styles.vcenter}`}>
       <div className='pull-right mr-3 mr-lg-4 py-3'>
-        { props.left }
+        <Fade bottom cascade>
+          { props.left }
+        </Fade>
       </div>
     </div>
     <div className={`col-6 ${styles.vcenter}`}>
       <div className='pull-left ml-3 ml-lg-4 py-3'>
+      <Fade bottom cascade>
         { props.right }
+      </Fade>
       </div>
     </div>
   </React.Fragment>
@@ -24,12 +29,18 @@ const MediaCard = (props) => (
   <React.Fragment>
     <div className='col-11 col-sm-10 col-md-8 mt-3'>
       <div className='mx-3 mx-xl-4 py-3'>
+      <Fade bottom cascade>
         { props.media }
+      </Fade>
       </div>
     </div>
     <div className='col-11 col-sm-10 col-md-8 mb-3'>
       <div className='mx-3 mx-xl-4 py-sm-3'>
-        <div className='px-1'>{ props.text }</div>
+        <div className='px-1'>
+        <Fade bottom cascade>
+          { props.text }
+        </Fade>
+        </div>
       </div>
     </div>
   </React.Fragment>

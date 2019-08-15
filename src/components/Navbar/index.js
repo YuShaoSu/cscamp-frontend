@@ -6,11 +6,11 @@ import { HashLink } from 'react-router-hash-link'
 import { logout } from 'api/Actions/User'
 import styles from './style.module.scss'
 
-const NavDropdownLink = (props) => (
-  <Link className={`dropdown-item ${styles.dropdownItem}`} to={props.to}>
-    { props.children }
-  </Link>
-)
+// const NavDropdownLink = (props) => (
+//   <Link className={`dropdown-item ${styles.dropdownItem}`} to={props.to}>
+//     { props.children }
+//   </Link>
+// )
 
 class NavDropdown extends React.Component {
   constructor (props) {

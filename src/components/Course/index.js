@@ -20,13 +20,13 @@ const CourseCard = (props) => (
 
 const CourseText = (props) => (
   <div className='col-11 col-sm-10 col-md-12 col-lg-10 my-5'>
-    <div className='mx-3 mx-lg-4'>
+    <div className='mx-3 mx-lg-4 text-center'>
       <div className={styles.text}>{ props.text }</div>
       <a
         className={styles.link}
         target='_blank'
         rel='noopener noreferrer'
-        href='https://reurl.cc/jLXyp'
+        href='https://drive.google.com/open?id=1RZngBADXut6sUQD0EdIBWRPzwkcCUkWa'
       >
         課程投影片
       </a>

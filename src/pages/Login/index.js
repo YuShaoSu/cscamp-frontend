@@ -42,7 +42,6 @@ class Login extends React.Component {
   componentDidUpdate () {
     // 登入成功，跳轉頁面
     if (this.props.currentUser) {
-      console.log(this.props.currentUser)
       this.props.history.push('/look_back')
     }
 

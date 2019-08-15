@@ -27,7 +27,6 @@ class LookBack extends React.Component {
     Object.keys(media)
       .map((day, index) => (media[day].length))
       .reduce((a, b, i) => { return mediaSum[i + 2] = a + b }, 0)
-    console.log(mediaSum)
 
     return (
       <Layout>

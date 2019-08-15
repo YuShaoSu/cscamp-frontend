@@ -18,7 +18,6 @@ export const login = (payload) => dispatch => {
   apiServer
     .post('/api/auth/v1/login', payload)
     .then(({ data: response }) => {
-      console.log(response)
       const storage = window.sessionStorage
       storage.setItem('user', JSON.stringify(response.data))
       dispatch(actions.user.auth.login(response.data))
@@ -32,7 +31,6 @@ export const logout = () => dispatch => {
   apiServer
     .get('/api/auth/v1/logout')
     .then(({ data: response }) => {
-      console.log(response)
       dispatch(actions.user.auth.logout())
       dispatch(actions.user.auth.setStatus(FETCHING_STATUS.DONE))
     })

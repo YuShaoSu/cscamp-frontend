@@ -21,7 +21,6 @@ export const getPoster = (payload) => dispatch => {
   apiServer
     .post('/api/look_back/v1/getPoster', payload)
     .then(({ data: response }) => {
-      console.log(response)
       dispatch(actions.lookBack.poster.store(response.data))
       dispatch(actions.lookBack.poster.setStatus(FETCHING_STATUS.DONE))
     })
@@ -33,7 +32,6 @@ export const getLookBackMedia = (payload) => dispatch => {
   apiServer
     .post('/api/look_back/v1/getAllDays', payload)
     .then(({ data: response }) => {
-      console.log(response)
       dispatch(actions.lookBack.media.store(response.data))
       dispatch(actions.lookBack.media.setStatus(FETCHING_STATUS.DONE))
     })

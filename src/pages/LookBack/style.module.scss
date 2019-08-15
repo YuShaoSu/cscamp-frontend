@@ -10,7 +10,7 @@ $text-black: #181831;
     font-size: 16px;
     line-height: 48px;
   }
-  @media (min-width: 767.98px) and (max-width: 991.98px) {
+  @media (min-width: 768px) and (max-width: 991.98px) {
     font-size: 14px;
     line-height: 44px;
   }
@@ -22,8 +22,4 @@ $text-black: #181831;
     font-size: 14px;
     line-height: 32px;
   }
-}
-
-.poster {
-  display: inline;
 }

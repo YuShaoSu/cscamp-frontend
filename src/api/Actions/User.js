@@ -20,7 +20,7 @@ export const login = (payload) => dispatch => {
     .then(({ data: response }) => {
       console.log(response)
       const storage = window.sessionStorage
-      storage.setItem('user', response.data)
+      storage.setItem('user', JSON.stringify(response.data))
       dispatch(actions.user.auth.login(response.data))
       dispatch(actions.user.auth.setStatus(FETCHING_STATUS.DONE))
     })
@@ -41,7 +41,7 @@ export const logout = () => dispatch => {
 
 export const getStorage = () => dispatch => {
   const storage = window.sessionStorage
-  const user = storage.getItem('user')
+  const user = JSON.parse(storage.getItem('user'))
   if (user) {
     dispatch(actions.user.auth.login(user))
   }

@@ -4,46 +4,68 @@ $nav-width: 50px;
 $bg-color: #f8f9fa;
 $border-color: #dee2e6; 
 
+.wrapper {
+  width: $nav-width;
+  height: 100vh;
+  display: contents;
+}
+
+.hashlink{ 
+  display: block;
+  z-index: 2; 
+  bottom: 5%;
+  position: fixed;
+  
+  .sidebarHash {
+    font-size: 8px;
+    text-decoration: none;
+    color: lightgrey;
+    writing-mode: initial;
+    padding-bottom: 2px;
+    transition: font-size 0.25s ease-out;
+
+    @media (max-width: 700px) {
+      .sidebarHash {
+        display: none;
+      }
+    }
+  }
+  
+  .sidebarHash:hover {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.hashlinkNone{
+  display: none;
+}
+
 .sidebar {
-    width: $nav-width;
-    height: 100vh;
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 1;
     color: gray;
     transition: all 0.3s;
-    padding-top: 50px;
-    padding-right: 90px;
+    padding-top: 1%;
+    padding-right: 80px;
 
     text-decoration: none;
     writing-mode: vertical-lr;
     text-orientation: mixed;
 
     .sidebarItem {
-        padding-left: 40px;
-        padding-bottom: 50px;
+        padding-left: 30px;
+        padding-bottom: 40px;
         text-decoration: none;
         color: gray;
     }
 
     .sidebarItemActive {
         color: black;
-    }
-
-    .sidebarHash {
-      font-size: 8px;
-      text-decoration: none;
-      color: lightgrey;
-      writing-mode: initial;
-      padding-bottom: 2px;
-      transition: font-size 0.25s ease-out;
-    }
-    
-    .sidebarHash:hover {
-      font-size: 20px;
-      color: black;
-      text-decoration: none;
     }
 
 }
@@ -67,10 +89,6 @@ $border-color: #dee2e6;
       padding-left: 0px;
       padding-bottom: 1%;
     }
-
-    .sidebarHash {
-      display: none;
-    }
   }
 }
 
@@ -79,10 +97,6 @@ $border-color: #dee2e6;
       display: none;
   
       .sidebarItem {
-        display: none;
-      }
-  
-      .sidebarHash {
         display: none;
       }
     }

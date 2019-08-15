@@ -19,7 +19,7 @@ const CourseCard = (props) => (
 )
 
 const CourseText = (props) => (
-  <div className={`col-11 col-sm-10 my-5`}>
+  <div className='col-11 col-sm-10 col-md-12 col-lg-10 my-5'>
     <div className='mx-3 mx-lg-4'>
       <div className={styles.content}>{ props.content }</div>
       <a

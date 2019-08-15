@@ -23,6 +23,21 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount () {
+    const { state } = this.props.location
+
+    // 沒登入被導入此頁
+    if (state && state.redirected) {
+      toast('請先登入，謝謝!', { type: 'warning' })
+
+      // 清除 location state
+      this.props.history.replace({
+        pathname: '/login',
+        state: {}
+      })
+    }
+  }
+
   componentDidUpdate () {
     // 登入成功，跳轉頁面
     if (this.props.currentUser) {

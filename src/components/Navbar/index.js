@@ -65,8 +65,8 @@ class Navbar extends React.Component {
         <div className={`${styles.wrapper}`}>
           <div className={`${styles.sidebar}`}>
             <SidebarLink to='/look_back'>Look Back</SidebarLink>
-            <SidebarLink to='/performance/night_show'>Night Show</SidebarLink>
-            <SidebarLink to='/performance/camp_fire'>Camp Fire</SidebarLink>
+            <SidebarLink to='/night_show'>Night Show</SidebarLink>
+            <SidebarLink to='/camp_fire'>Camp Fire</SidebarLink>
             <SidebarLink to='/course'>Course</SidebarLink>
           </div>
 
@@ -96,8 +96,8 @@ class Navbar extends React.Component {
           <div className={`collapse navbar-collapse ${this.state.open && styles.navbarCollapse}`}>
             <div className={`navbar-nav ${styles.navbarNav}`}>
               <Link className='nav-item nav-link py-0' to='/look_back'>Look Back</Link>
-              <Link className='nav-item nav-link py-0' to='/performance/night_show'>Night Show</Link>
-              <Link className='nav-item nav-link py-0' to='/performance/camp_fire'>Camp Fire</Link>
+              <Link className='nav-item nav-link py-0' to='/night_show'>Night Show</Link>
+              <Link className='nav-item nav-link py-0' to='/camp_fire'>Camp Fire</Link>
               <Link className='nav-item nav-link py-0' to='/course'>Course</Link>
 
               <NavDropdown className='mx-sm-3' title={currentUser && currentUser.name}>

@@ -10,7 +10,8 @@ import {
 import Home from 'pages/Home'
 import Login from 'pages/Login'
 import LookBack from 'pages/LookBack'
-import * as Performance from 'pages/Performance'
+import NightShow from 'pages/NightShow'
+import CampFire from 'pages/CampFire'
 import Course from 'pages/Course'
 import autoLogout from 'components/AutoLogout'
 import { getStorage } from 'api/Actions/User'
@@ -47,8 +48,8 @@ class Router extends React.Component {
           <Route exact path='/' component={Home} />
           <Route path='/login' component={Login} />
           <Route path='/look_back' component={this.loginOnly(autoLogout(LookBack))} />
-          <Route path='/performance/night_show' component={this.loginOnly(autoLogout(Performance.NightShow))} />
-          <Route path='/performance/camp_fire' component={this.loginOnly(autoLogout(Performance.CampFire))} />
+          <Route path='/night_show' component={this.loginOnly(autoLogout(NightShow))} />
+          <Route path='/camp_fire' component={this.loginOnly(autoLogout(CampFire))} />
           <Route path='/course' component={this.loginOnly(autoLogout(Course))} />
         </Switch>
       </BrowserRouter>

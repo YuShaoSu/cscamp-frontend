@@ -135,14 +135,18 @@ class Navbar extends React.Component {
                 <Link className='nav-item nav-link py-0' to='/camp_fire'>Camp Fire</Link>
                 <Link className='nav-item nav-link py-0' to='/course'>Course</Link>
 
-                <NavDropdown className='mx-sm-3' title={currentUser && currentUser.name}>
+                <div className='mx-sm-3'>
+                  {currentUser && currentUser.name}
+                </div>
+
+                {/* <NavDropdown className='mx-sm-3' title={currentUser && currentUser.name}>
                   <div
                     className={`dropdown-item ${styles.dropdownItem}`}
                     onClick={() => this.props.logout()}
                   >
                     logout
                   </div>
-                </NavDropdown>
+                </NavDropdown> */}
               </div>
             </div>
           }

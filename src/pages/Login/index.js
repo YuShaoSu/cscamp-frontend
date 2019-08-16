@@ -106,7 +106,7 @@ class Login extends React.Component {
 
             <div className='form-group'>
               <div className='row'>
-                <label className='col-12'>密碼:</label>
+                <label className='col-12'>生日:</label>
                 <div className='col-12'>
                   <input
                     className='form-control'

@@ -138,7 +138,12 @@ class Navbar extends React.Component {
                 <div className='mx-sm-3'>
                   {currentUser && currentUser.name}
                 </div>
-
+                <div
+                    className={`dropdown-item ${styles.dropdownItem}`}
+                    onClick={() => this.props.logout()}
+                  >
+                    logout
+                  </div>
                 {/* <NavDropdown className='mx-sm-3' title={currentUser && currentUser.name}>
                   <div
                     className={`dropdown-item ${styles.dropdownItem}`}

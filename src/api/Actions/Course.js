@@ -11,12 +11,10 @@ export const actions = createActions({
 })
 
 export const getCourse = (payload) => dispatch => {
-  console.log(payload)
   dispatch(actions.course.setStatus(FETCHING_STATUS.FETCHING))
   apiServer
     .post('/api/look_back/v1/getCourse', payload)
     .then(({ data: response }) => {
-      console.log(response)
       dispatch(actions.course.store(response.data))
       dispatch(actions.course.setStatus(FETCHING_STATUS.DONE))
     })

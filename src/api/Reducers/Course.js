@@ -3,7 +3,10 @@ import { handleActions } from 'redux-actions'
 import { FETCHING_STATUS } from 'utilities/constants'
 
 const initialState = {
-  data: null,
+  data: {
+  	course: [],
+  	summary: ''
+  },
   status: FETCHING_STATUS.IDLE
 }
 

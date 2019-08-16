@@ -6,7 +6,6 @@ import { LookBackTable, MediaCard } from 'components/LookBackTable'
 import YoutubeVideo from 'components/YoutubeVideo'
 import { getPoster, getLookBackMedia } from 'api/Actions/LookBack'
 import styles from './style.module.scss'
-import Fade from 'react-reveal/Fade'
 
 class LookBack extends React.Component {
   componentDidMount () {
@@ -27,7 +26,6 @@ class LookBack extends React.Component {
     Object.keys(media)
       .map((day, index) => (media[day].length))
       .reduce((a, b, i) => { return mediaSum[i + 2] = a + b }, 0)
-    console.log(mediaSum)
 
     return (
       <Layout>

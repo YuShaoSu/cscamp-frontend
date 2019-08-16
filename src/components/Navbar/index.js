@@ -49,12 +49,10 @@ const SidebarLink = (props) => (
 class Navbar extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { open: false }
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick () {
-    this.setState({ open: !this.state.open })
+    this.state = {
+      navbarOpen: false,
+      logoutOpen: false
+    }
   }
 
   render () {
@@ -68,6 +66,22 @@ class Navbar extends React.Component {
             <SidebarLink to='/night_show'>Night Show</SidebarLink>
             <SidebarLink to='/camp_fire'>Camp Fire</SidebarLink>
             <SidebarLink to='/course'>Course</SidebarLink>
+
+            {/* username and logout for only sm */}
+            <div
+              className={`mx-sm-4 ${styles.smInfo}`}
+              onMouseOver={() => this.setState({ logoutOpen: true })}
+              onMouseLeave={() => this.setState({ logoutOpen: false })}
+            >
+              <span>{ currentUser && currentUser.name }</span>
+              <span className={styles.triangle} />
+              {
+                this.state.logoutOpen &&
+                <div className={styles.smLogout} onClick={() => this.props.logout()}>
+                  logout
+                </div>
+              }
+            </div>
           </div>
 
           {
@@ -86,30 +100,52 @@ class Navbar extends React.Component {
               <HashLink to="#Day6" className={`mx-4 ${styles.hashLink}`} smooth>Day6</HashLink>
             </div>
           }
+
+          {/* username and logout for md and above */}
+          <div
+            className={styles.info}
+            onMouseOver={() => this.setState({ logoutOpen: true })}
+            onMouseLeave={() => this.setState({ logoutOpen: false })}
+          >
+            <span className='ml-3 mr-1'>{ currentUser && currentUser.name }</span>
+            <span className={styles.triangle} />
+            {
+              this.state.logoutOpen &&
+              <div className={styles.logout} onClick={() => this.props.logout()}>
+                logout
+              </div>
+            }
+          </div>
         </div>
 
-        {/* for mobile */}
+        {/* navbar for xs */}
         <nav className={`navbar navbar-light px-4 py-auto ${styles.navbar}`}>
-          <button className='navbar-toggler px-2 py-1' onClick={this.handleClick}>
+          <button
+            className='navbar-toggler px-2 py-1'
+            onClick={() => this.setState({ navbarOpen: !this.state.navbarOpen })}
+          >
             <span className='navbar-toggler-icon' />
           </button>
-          <div className={`collapse navbar-collapse ${this.state.open && styles.navbarCollapse}`}>
-            <div className={`navbar-nav ${styles.navbarNav}`}>
-              <Link className='nav-item nav-link py-0' to='/look_back'>Look Back</Link>
-              <Link className='nav-item nav-link py-0' to='/night_show'>Night Show</Link>
-              <Link className='nav-item nav-link py-0' to='/camp_fire'>Camp Fire</Link>
-              <Link className='nav-item nav-link py-0' to='/course'>Course</Link>
+          {
+            this.state.navbarOpen &&
+            <div className={`collapse navbar-collapse ${styles.navbarCollapse}`}>
+              <div className={`navbar-nav ${styles.navbarNav}`}>
+                <Link className='nav-item nav-link py-0' to='/look_back'>Look Back</Link>
+                <Link className='nav-item nav-link py-0' to='/night_show'>Night Show</Link>
+                <Link className='nav-item nav-link py-0' to='/camp_fire'>Camp Fire</Link>
+                <Link className='nav-item nav-link py-0' to='/course'>Course</Link>
 
-              <NavDropdown className='mx-sm-3' title={currentUser && currentUser.name}>
-                <div
-                  className={`dropdown-item clickable ${styles.dropdownItem}`}
-                  onClick={() => this.props.logout()}
-                >
-                  登出
-                </div>
-              </NavDropdown>
+                <NavDropdown className='mx-sm-3' title={currentUser && currentUser.name}>
+                  <div
+                    className={`dropdown-item ${styles.dropdownItem}`}
+                    onClick={() => this.props.logout()}
+                  >
+                    logout
+                  </div>
+                </NavDropdown>
+              </div>
             </div>
-          </div>
+          }
         </nav>
       </div>
     )

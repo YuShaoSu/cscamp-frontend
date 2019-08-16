@@ -3,6 +3,7 @@ $nav-height: 56px;
 $nav-width: 50px;
 $bg-color: #f8f9fa;
 $border-color: #dee2e6;
+$text-black: #181831;
 
 .wrapper {
   width: $nav-width;
@@ -19,13 +20,12 @@ $border-color: #dee2e6;
   color: gray;
   transition: all 0.3s;
   padding-top: 1%;
-  padding-right: 80px;
   text-decoration: none;
   text-orientation: mixed;
   writing-mode: vertical-lr;
 
   a:hover {
-    color: #181831;
+    color: $text-black;
   }
 
   .sidebarItem {
@@ -35,23 +35,60 @@ $border-color: #dee2e6;
     color: gray;
   }
 
-  @media (max-width: 767.98px) {
+  .smInfo {
+    display: none;
+  }
+
+  @media (min-width: 576px) and (max-width: 767.98px) {
     width: 100%;
     height: auto;
     position: relative;
     text-decoration: none;
     text-orientation: mixed;
+    text-align: center;
     writing-mode: initial;
     padding-top: 3%;
     padding-right: 0px;
-    left: 10%;
 
     .sidebarItem {
-      float: left;
       text-decoration: none;
       color: gray;
       padding-left: 0px;
-      padding-bottom: 1%;
+      padding-bottom: 0px;
+    }
+
+    .smInfo {
+      display: inline-block;
+      text-decoration: none;
+      color: gray;
+      padding-left: 0px;
+      padding-bottom: 0px;
+      cursor: pointer;
+
+      &:hover {
+        color: $text-black;
+      }
+
+      .triangle {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 6px 4px 0px 4px;
+        border-color: $text-black transparent transparent transparent;
+        margin-left: 3px;
+        margin-bottom: 2px;
+      }
+
+      .smLogout {
+        padding-top: 5px;
+        position: fixed;
+        color: gray;
+
+        &:hover {
+          color: $text-black;
+        }
+      }
     }
   }
 
@@ -60,11 +97,11 @@ $border-color: #dee2e6;
   }
 }
 
-.sidebarHash { 
+.sidebarHash {
   display: block;
-  z-index: 2; 
-  bottom: 5%;
   position: fixed;
+  bottom: 15%;
+  z-index: 2;
 
   @media (max-width: 767.98px) {
     display: none;
@@ -80,8 +117,51 @@ $border-color: #dee2e6;
 
     &:hover {
       font-size: 20px;
-      color: black;
+      color: $text-black;
       text-decoration: none;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 5%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease-out;
+  z-index: 2;
+
+  &:hover {
+    font-size: 18px;
+
+    .triangle {
+      border-width: 4.5px 0 4.5px 9px;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    display: none;
+  }
+
+  .triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 8px;
+    border-color: transparent transparent transparent $text-black;
+    margin-right: 10px;
+    margin-top: 3px;
+  }
+
+  .logout {
+    display: inline-block;
+    color: gray;
+
+    &:hover {
+      color: $text-black;
     }
   }
 }
@@ -116,4 +196,5 @@ $border-color: #dee2e6;
 .dropdownItem {
   line-height: 32px;
   border-bottom: 1px solid $border-color;
+  cursor: pointer;
 }

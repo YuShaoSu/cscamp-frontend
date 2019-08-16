@@ -19,7 +19,6 @@ class Course extends React.Component {
       <Layout>
         <div className='row justify-content-center my-3'>
           {
-            data &&
             data.course.map((course, index) => (
               <CourseCard
                 key={index}
@@ -29,7 +28,7 @@ class Course extends React.Component {
               />
             ))
           }
-          <CourseText text={data && data.summary} />
+          <CourseText text={data.summary} />
         </div>
       </Layout>
     )

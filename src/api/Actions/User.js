@@ -16,7 +16,7 @@ export const actions = createActions({
 export const login = (payload) => dispatch => {
   dispatch(actions.user.auth.setStatus(FETCHING_STATUS.FETCHING))
   apiServer
-    .post('/api/auth/v1/login', payload)
+    .post('/auth/v1/login', payload)
     .then(({ data: response }) => {
       const storage = window.sessionStorage
       storage.setItem('user', JSON.stringify(response.data))
@@ -29,7 +29,7 @@ export const login = (payload) => dispatch => {
 export const logout = () => dispatch => {
   dispatch(actions.user.auth.setStatus(FETCHING_STATUS.FETCHING))
   apiServer
-    .get('/api/auth/v1/logout')
+    .get('/auth/v1/logout')
     .then(({ data: response }) => {
       dispatch(actions.user.auth.logout())
       dispatch(actions.user.auth.setStatus(FETCHING_STATUS.DONE))

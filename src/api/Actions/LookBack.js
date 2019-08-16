@@ -19,7 +19,7 @@ export const actions = createActions({
 export const getPoster = (payload) => dispatch => {
   dispatch(actions.lookBack.poster.setStatus(FETCHING_STATUS.FETCHING))
   apiServer
-    .post('/api/look_back/v1/getPoster', payload)
+    .post('/look_back/v1/getPoster', payload)
     .then(({ data: response }) => {
       dispatch(actions.lookBack.poster.store(response.data))
       dispatch(actions.lookBack.poster.setStatus(FETCHING_STATUS.DONE))
@@ -30,7 +30,7 @@ export const getPoster = (payload) => dispatch => {
 export const getLookBackMedia = (payload) => dispatch => {
   dispatch(actions.lookBack.media.setStatus(FETCHING_STATUS.FETCHING))
   apiServer
-    .post('/api/look_back/v1/getAllDays', payload)
+    .post('/look_back/v1/getAllDays', payload)
     .then(({ data: response }) => {
       dispatch(actions.lookBack.media.store(response.data))
       dispatch(actions.lookBack.media.setStatus(FETCHING_STATUS.DONE))

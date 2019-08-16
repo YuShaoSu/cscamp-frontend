@@ -16,6 +16,10 @@ class AutoLogout extends React.Component {
   }
 
   componentDidMount () {
+    if (!this.props.currentUser) {
+      window.location.assign('/')
+    }
+
     const events = [
       'load',
       'mousemove',
@@ -29,12 +33,6 @@ class AutoLogout extends React.Component {
       window.addEventListener(event, this.resetTimer)
     })
     this.setTimer()
-  }
-
-  componentDidUpdate () {
-    if (!this.props.currentUser) {
-      window.location.assign('/')
-    }
   }
 
   setTimer () {

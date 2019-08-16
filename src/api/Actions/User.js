@@ -48,5 +48,5 @@ export const getStorage = () => dispatch => {
 export const clearStorage = () => dispatch => {
   const storage = window.sessionStorage
   storage.removeItem('user')
-  dispatch(actions.user.auth.login(null))
+  dispatch(actions.user.auth.logout())
 }

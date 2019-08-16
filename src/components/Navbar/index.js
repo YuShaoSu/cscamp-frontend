@@ -38,7 +38,7 @@ class NavDropdown extends React.Component {
 
 const SidebarLink = (props) => (
   <NavLink
-    className={`mx-sm-4 ${styles.sidebarItem}`} 
+    className={`mx-sm-4 ${styles.sidebarItem}`}
     activeClassName='text-black'
     to={props.to}
   >
@@ -87,17 +87,17 @@ class Navbar extends React.Component {
           {
             this.props.location.pathname === '/look_back' &&
             <div className={styles.sidebarHash}>
-              <HashLink to="#Day1" className={`mx-4 ${styles.hashLink}`} smooth>Day1</HashLink>
+              <HashLink to='#Day1' className={`mx-4 ${styles.hashLink}`} smooth>Day1</HashLink>
               <br />
-              <HashLink to="#Day2" className={`mx-4 ${styles.hashLink}`} smooth>Day2</HashLink>
+              <HashLink to='#Day2' className={`mx-4 ${styles.hashLink}`} smooth>Day2</HashLink>
               <br />
-              <HashLink to="#Day3" className={`mx-4 ${styles.hashLink}`} smooth>Day3</HashLink>
+              <HashLink to='#Day3' className={`mx-4 ${styles.hashLink}`} smooth>Day3</HashLink>
               <br />
-              <HashLink to="#Day4" className={`mx-4 ${styles.hashLink}`} smooth>Day4</HashLink>
+              <HashLink to='#Day4' className={`mx-4 ${styles.hashLink}`} smooth>Day4</HashLink>
               <br />
-              <HashLink to="#Day5" className={`mx-4 ${styles.hashLink}`} smooth>Day5</HashLink>
+              <HashLink to='#Day5' className={`mx-4 ${styles.hashLink}`} smooth>Day5</HashLink>
               <br />
-              <HashLink to="#Day6" className={`mx-4 ${styles.hashLink}`} smooth>Day6</HashLink>
+              <HashLink to='#Day6' className={`mx-4 ${styles.hashLink}`} smooth>Day6</HashLink>
             </div>
           }
 

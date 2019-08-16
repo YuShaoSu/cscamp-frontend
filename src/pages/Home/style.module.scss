@@ -7,7 +7,7 @@
   transition-property: z-index;
   transition-duration: 1s;
 
-  @media (max-width:576px) {
+  @media (max-width: 575.98px) {
     height: 50%;
     padding-top: 20%;
   }
@@ -23,10 +23,9 @@
   border-left: 1px white solid;
   padding-left: 15px;
 
-  @media (max-width:576px) {
+  @media (max-width: 575.98px) {
     left: 40%;
   }
-
 }
 
 .loginLink {
@@ -42,5 +41,5 @@
   &:hover,
   &:focus {
     text-decoration: none;
-  };
+  }
 }

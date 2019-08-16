@@ -4,7 +4,7 @@ import Fade from 'react-reveal/Fade'
 
 const YoutubeVideo = (props) => (
   <div className='embed-responsive embed-responsive-16by9'>
-  <Fade bottom>
+    <Fade bottom>
       <iframe
         className='embed-responsive-item'
         title={props.title}
@@ -13,7 +13,7 @@ const YoutubeVideo = (props) => (
         allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
         allowFullScreen
       />
-  </Fade>
+    </Fade>
   </div>
 )
 

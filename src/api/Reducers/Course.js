@@ -4,8 +4,8 @@ import { FETCHING_STATUS } from 'utilities/constants'
 
 const initialState = {
   data: {
-  	course: [],
-  	summary: ''
+    course: [],
+    summary: ''
   },
   status: FETCHING_STATUS.IDLE
 }

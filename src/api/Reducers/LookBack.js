@@ -19,24 +19,28 @@ const initialState = {
 export default handleActions({
   LOOK_BACK: {
     POSTER: {
-      STORE: (state, action) => ({ ...state, poster: {
-        ...state.poster,
-        data: action.payload
-      }}),
-      SET_STATUS: (state, action) => ({ ...state, poster: {
-        ...state.poster,
-        status: action.payload
-      }})
+      STORE: (state, action) => ({ ...state,
+        poster: {
+          ...state.poster,
+          data: action.payload
+        } }),
+      SET_STATUS: (state, action) => ({ ...state,
+        poster: {
+          ...state.poster,
+          status: action.payload
+        } })
     },
     MEDIA: {
-      STORE: (state, action) => ({ ...state, media: {
-        ...state.media,
-        data: action.payload
-      }}),
-      SET_STATUS: (state, action) => ({ ...state, media: {
-        ...state.media,
-        status: action.payload
-      }})
+      STORE: (state, action) => ({ ...state,
+        media: {
+          ...state.media,
+          data: action.payload
+        } }),
+      SET_STATUS: (state, action) => ({ ...state,
+        media: {
+          ...state.media,
+          status: action.payload
+        } })
     }
   }
 }, initialState)

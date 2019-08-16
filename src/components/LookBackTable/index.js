@@ -16,9 +16,9 @@ const MediaRow = (props) => (
     </div>
     <div className={`col-6 ${styles.vcenter}`}>
       <div className='pull-left ml-3 ml-lg-4 py-3'>
-      <Fade bottom cascade>
-        { props.right }
-      </Fade>
+        <Fade bottom cascade>
+          { props.right }
+        </Fade>
       </div>
     </div>
   </React.Fragment>
@@ -29,17 +29,17 @@ const MediaCard = (props) => (
   <React.Fragment>
     <div className='col-11 col-sm-10 col-md-8 mt-3'>
       <div className='mx-3 mx-xl-4 py-3'>
-      <Fade bottom cascade>
-        { props.media }
-      </Fade>
+        <Fade bottom cascade>
+          { props.media }
+        </Fade>
       </div>
     </div>
     <div className='col-11 col-sm-10 col-md-8 mb-3'>
       <div className='mx-3 mx-xl-4 py-sm-3'>
         <div className='px-1'>
-        <Fade bottom cascade>
-          { props.text }
-        </Fade>
+          <Fade bottom cascade>
+            { props.text }
+          </Fade>
         </div>
       </div>
     </div>

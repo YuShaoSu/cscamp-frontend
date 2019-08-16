@@ -1,11 +1,10 @@
 .backgroundVideo {
   height: 100vh;
   overflow: hidden;
-  // opacity: 0.6;
   z-index: -1;
   left: 0;
 
-  @media (max-width:576px) {
+  @media (max-width: 575.98px) {
     transform: rotate(90deg);
     transform-origin: bottom left;
     position: absolute;
@@ -13,7 +12,9 @@
     height: 100vw;
     margin-top: -100vw;
     object-fit: cover;
-  
   }
 
+  video {
+    height: 100vh;
+  }
 }

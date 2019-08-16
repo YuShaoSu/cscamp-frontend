@@ -28,8 +28,7 @@ class Router extends React.Component {
     const user = storage.getItem('user')
     if (user) {
       return () => <Component />
-    }
-    else {
+    } else {
       return () => (
         <Redirect
           to={{
